@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
 {
     private Integer buttonClicked = 0;
     private float nearestToTarget;
+    private boolean numericMode = false;
+    private boolean blockMode = false;
     private boolean power = false;
     private boolean firstHit = true;
     private SensorManager sensorManager;
@@ -62,8 +64,9 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IBnumeric = (ImageButton) this.findViewById(R.id.IBnumeric);
         IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
         TVmode = (TextView) this.findViewById(R.id.TVmode);
+        TVmode.setText("                           .");
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
-        IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});//On Click Power
+        IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
         IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1;}});
         IB2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=2;}});
         IB3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=3;}});
@@ -77,8 +80,22 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11;}});
         IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12;}});
         powerOff();
-        IBmagnetic.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {TVmode.setText("                            .");}});
-        IBnumeric.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {TVmode.setText("                                                                                .");}});
+        IBmagnetic.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
+        {
+            numericMode = false;
+            blockMode = false;
+            firstHit=true;
+            buttonClicked=0;
+            TVmode.setText("                           .");}
+        });
+        IBnumeric.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
+        {
+            numericMode = true;
+            blockMode = false;
+            firstHit=true;
+            buttonClicked=0;
+            TVmode.setText("                                                                                .");}
+        });
         //IBbloqueo.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {TVmode.setText("                                                       .");}});
     }
 
@@ -98,13 +115,15 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         else
         {
             Picasso.with(this).load(R.drawable.on).fit().into(IBpower); //Change Power ImageButton ON
-            degreesOnClickPower = currentDegrees;
             power=true;
-            start();
+            if (numericMode) {startNumericMode();}
+            else if(blockMode) {}
+            else{startMagneticMode();}
         }
     }
-    public void start()
+    public void startMagneticMode()
     {
+        degreesOnClickPower = currentDegrees;
         if (firstHit && buttonClicked!=0)
         {
             if (buttonClicked==1){onClick1();}
@@ -183,11 +202,11 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     public void onSensorChanged(SensorEvent event)
     {
         currentDegrees = Math.round(event.values[0]); //To get the Current Orientation in degrees rounded.
-        if (power)
+        if (power && !numericMode && !blockMode)
         {
-            float a = Math.abs(currentDegrees -targetDegrees);
-            float b = Math.abs(360-Math.abs(currentDegrees -targetDegrees));
-            if (a>b) {nearestToTarget = b;}
+            float a = Math.abs(currentDegrees - targetDegrees);
+            float b = Math.abs(360 - Math.abs(currentDegrees - targetDegrees));
+            if (a > b) {nearestToTarget = b;}
             else {nearestToTarget = a;}
             bars(nearestToTarget);
         }
@@ -429,4 +448,23 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         Picasso.with(this).load(R.drawable.pl11).fit().into(IB11);
         Picasso.with(this).load(R.drawable.pl12).fit().into(IB12);
     }
+    private Integer counter=0;
+    public void startNumericMode()
+    {
+        if (firstHit && buttonClicked!=0)
+        {
+            if (buttonClicked==1){twelveBars();}
+            else{oneBar();}
+            counter = buttonClicked;
+        }
+        else
+        {
+            if (counter == 1 || counter == 1-2) {twelveBars();}
+            else {oneBar();}
+        }
+        counter--;
+        firstHit = false;
+
+    }
+    public void onClickPowerBlockMode(){}
 }
