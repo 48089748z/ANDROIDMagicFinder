@@ -151,5 +151,15 @@
         android:layout_below="@+id/IB1"
         android:background="@android:color/black" />
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:id="@+id/TVmode"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/IB11"
+        android:layout_alignParentTop="true" />
+
 
 </RelativeLayout>

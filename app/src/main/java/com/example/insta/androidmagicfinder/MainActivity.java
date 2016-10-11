@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
 import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity  implements SensorEventListener
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     ImageButton IB11;
     ImageButton IB12;
     MediaPlayer beep;
+    TextView TVmode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IBpower = (ImageButton) this.findViewById(R.id.IBpower);
         IBnumeric = (ImageButton) this.findViewById(R.id.IBnumeric);
         IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
+        TVmode = (TextView) this.findViewById(R.id.TVmode);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});//On Click Power
         IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1;}});
@@ -73,6 +77,9 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11;}});
         IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12;}});
         powerOff();
+        IBmagnetic.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {TVmode.setText("                            .");}});
+        IBnumeric.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {TVmode.setText("                                                                                .");}});
+        //IBbloqueo.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {TVmode.setText("                                                       .");}});
     }
 
     //FALTA QUE SE REPRODUZCA CADA X MILLISEGUNDOS
