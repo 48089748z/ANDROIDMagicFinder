@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="5dp"
+    android:background="@android:color/black"
+    tools:context="com.example.insta.androidmagicfinder.MainActivity">
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/IB12"
+        android:layout_alignParentEnd="true"
+
+        android:layout_height="47dp" />
+
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB10"
+        android:layout_below="@+id/IB11"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="44dp" />
+
+
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB9"
+        android:layout_below="@+id/IB10"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="40dp" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB8"
+        android:layout_below="@+id/IB9"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="43dp" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB7"
+        android:layout_below="@+id/IB8"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="38dp" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB6"
+        android:layout_below="@+id/IB7"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="37dp" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB4"
+        android:layout_below="@+id/IB5"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="36dp" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB3"
+        android:layout_below="@+id/IB4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="36dp" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB5"
+        android:layout_below="@+id/IB6"
+        android:layout_centerHorizontal="true"
+        android:layout_height="36dp" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB11"
+        android:layout_below="@+id/IB12"
+        android:layout_height="45dp"
+        android:layout_toEndOf="@+id/IB2"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB1"
+        android:layout_below="@+id/IB2"
+        android:layout_height="36dp"
+        android:layout_toEndOf="@+id/IB2"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB2"
+        android:layout_height="36dp"
+        android:layout_below="@+id/IB3"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/IBpower"
+        android:background="@android:color/black"
+        android:layout_height="110dp"
+        android:layout_width="110dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/IBmagnetic"
+        android:layout_toStartOf="@+id/IBpower"
+        android:layout_below="@+id/IB1"
+        android:background="@android:color/black" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/IBnumeric"
+        android:layout_toEndOf="@+id/IBpower"
+        android:layout_below="@+id/IB1"
+        android:background="@android:color/black" />
+
+
+</RelativeLayout>
