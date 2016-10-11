@@ -6,11 +6,14 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
+
+import java.math.BigInteger;
 
 public class MainActivity extends AppCompatActivity  implements SensorEventListener
 {
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         beep = MediaPlayer.create(this, R.raw.beep);
         IB1 = (ImageButton) this.findViewById(R.id.IB1);
         IB2 = (ImageButton) this.findViewById(R.id.IB2);
@@ -99,10 +103,10 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         //IBbloqueo.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {TVmode.setText("                                                       .");}});
     }
 
-    //FALTA QUE SE REPRODUZCA CADA X MILLISEGUNDOS
-    public void playBeep(long milliseconds)
+    public void playBeep(final long milliseconds)
     {
-        beep.start();
+        //GOTTA PLAY THE BEEP EACH X MILLISECONDS...
+       // beep.start();
     }
     public void onClickPower()
     {
@@ -198,6 +202,8 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         else {targetDegrees=degreesOnClickPower+330;}
     }
     public void onClick12() {targetDegrees = degreesOnClickPower;}
+
+
     @Override
     public void onSensorChanged(SensorEvent event)
     {
@@ -215,7 +221,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     protected void onResume()
     {
         super.onResume();
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_GAME);  //For the System's Orientation Sensor Registered Listeners
+        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_NORMAL);  //For the System's Orientation Sensor Registered Listeners
     }
     @Override
     protected void onPause()
@@ -258,7 +264,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void oneBar()
     {
-        playBeep(50);
+        playBeep(100);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.ql2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.ql3).fit().into(IB3);
@@ -274,7 +280,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void twoBars()
     {
-        playBeep(100);
+        playBeep(150);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.ql3).fit().into(IB3);
@@ -290,7 +296,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void threeBars()
     {
-        playBeep(150);
+        playBeep(200);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -306,7 +312,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void fourBars()
     {
-        playBeep(200);
+        playBeep(250);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -322,7 +328,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void fiveBars()
     {
-        playBeep(250);
+        playBeep(300);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -338,7 +344,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void sixBars()
     {
-        playBeep(300);
+        playBeep(350);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -464,7 +470,11 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         }
         counter--;
         firstHit = false;
+        onClickPowerBlockMode();
 
     }
-    public void onClickPowerBlockMode(){}
+    public void onClickPowerBlockMode()
+    {
+
+    }
 }

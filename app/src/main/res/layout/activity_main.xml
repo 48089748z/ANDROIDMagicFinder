@@ -9,7 +9,7 @@
     android:paddingBottom="10dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    android:paddingTop="5dp"
+    android:paddingTop="30dp"
     android:background="@android:color/black"
     tools:context="com.example.insta.androidmagicfinder.MainActivity">
 
