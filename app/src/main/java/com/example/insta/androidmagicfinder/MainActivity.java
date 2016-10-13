@@ -1,4 +1,5 @@
 package com.example.insta.androidmagicfinder;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -6,15 +7,11 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-
-import java.math.BigInteger;
-
 public class MainActivity extends AppCompatActivity  implements SensorEventListener
 {
     private Integer buttonClicked = 0;
@@ -27,6 +24,8 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     private float targetDegrees;
     private float currentDegrees;
     private float degreesOnClickPower;
+    private long lastMagneticClickMillis = 0;
+    private long lastNumericClickMillis = 0;
     ImageButton IBpower;
     ImageButton IBnumeric;
     ImageButton IBmagnetic;
@@ -86,21 +85,45 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         powerOff();
         IBmagnetic.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
         {
-            numericMode = false;
-            blockMode = false;
-            firstHit=true;
-            buttonClicked=0;
-            TVmode.setText("                           .");}
-        });
+            powerOff();
+            lastMagneticClickMillis = System.currentTimeMillis();
+           if (lastNumericClickMillis+400>System.currentTimeMillis() && lastNumericClickMillis!=0)
+           {
+               blockMode = true;
+               numericMode = false;
+               TVmode.setText("                                                       .");
+               startBlockMode();
+           }
+           else
+           {
+
+               numericMode = false;
+               blockMode = false;
+               firstHit = true;
+               buttonClicked = 0;
+               TVmode.setText("                           .");
+           }
+        }});
         IBnumeric.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
         {
-            numericMode = true;
-            blockMode = false;
-            firstHit=true;
-            buttonClicked=0;
-            TVmode.setText("                                                                                .");}
-        });
-        //IBbloqueo.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {TVmode.setText("                                                       .");}});
+            powerOff();
+            lastNumericClickMillis = System.currentTimeMillis();
+            if (lastMagneticClickMillis+400>System.currentTimeMillis() && lastMagneticClickMillis!=0)
+            {
+                blockMode=true;
+                numericMode = false;
+                TVmode.setText("                                                       .");
+                startBlockMode();
+            }
+            else
+            {
+                numericMode = true;
+                blockMode = false;
+                firstHit = true;
+                buttonClicked = 0;
+                TVmode.setText("                                                                                .");
+            }
+        }});
     }
 
     public void playBeep(final long milliseconds)
@@ -121,8 +144,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
             Picasso.with(this).load(R.drawable.on).fit().into(IBpower); //Change Power ImageButton ON
             power=true;
             if (numericMode) {startNumericMode();}
-            else if(blockMode) {}
-            else{startMagneticMode();}
+            else {startMagneticMode();}
         }
     }
     public void startMagneticMode()
@@ -248,6 +270,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void powerOff()
     {
+        power = false;
         Picasso.with(this).load(R.drawable.off).fit().into(IBpower);
         Picasso.with(this).load(R.drawable.ql1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.ql2).fit().into(IB2);
@@ -470,11 +493,12 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         }
         counter--;
         firstHit = false;
-        onClickPowerBlockMode();
-
     }
-    public void onClickPowerBlockMode()
+    public void startBlockMode()
     {
-
+        Intent lockScreen = new Intent(this, LockScreenActivity.class);
+        try {Thread.sleep(5000);}
+        catch (InterruptedException ignored) {}
+        startActivity(lockScreen);
     }
 }
