@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         beep = MediaPlayer.create(this, R.raw.beep);
@@ -497,7 +498,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     public void startBlockMode()
     {
         Intent lockScreen = new Intent(this, LockScreenActivity.class);
-        try {Thread.sleep(5000);}
+        try {Thread.sleep(3000);}
         catch (InterruptedException ignored) {}
         startActivity(lockScreen);
     }
