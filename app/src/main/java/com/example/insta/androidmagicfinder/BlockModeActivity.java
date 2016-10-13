@@ -15,12 +15,18 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 public class BlockModeActivity extends AppCompatActivity  implements SensorEventListener
 {
+    private Integer timesPowerOn=0;
     private String pass;
     private float nearestToTarget;
     private boolean power = false;
     private SensorManager sensorManager;
     private float targetDegrees;
+    private float target1;
+    private float target2;
+    private float target3;
+    private float target4;
     private float currentDegrees;
+    private float degreesOnClickPower;
     ImageButton IBpower;
     ImageButton IB1;
     ImageButton IB2;
@@ -44,6 +50,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_block_mode);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
         beep = MediaPlayer.create(this, R.raw.beep);
         IB1 = (ImageButton) this.findViewById(R.id.IB1);
         IB2 = (ImageButton) this.findViewById(R.id.IB2);
@@ -60,15 +67,13 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         IBpower = (ImageButton) this.findViewById(R.id.IBpower);
         TVmode = (TextView) this.findViewById(R.id.TVmode);
         TVmode.setText("                                                       .");
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
         powerOff();
-
         pass = getIntent().getExtras().getString("passcode");
-        Log.e("Passcode", pass);
-       // get extras
-                //target degrees = 2314 180 0 90 270
-
+        asignTargets();
+        degreesOnClickPower = currentDegrees;
+        Log.e("Target1 MAIN", String.valueOf(target1));
+        Log.e("ClickPr MAIN", String.valueOf(degreesOnClickPower));
     }
     public void playBeep(final long milliseconds)
     {
@@ -85,21 +90,71 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         }
         else
         {
+            timesPowerOn = timesPowerOn+1;
             Picasso.with(this).load(R.drawable.on).fit().into(IBpower); //Change Power ImageButton ON
             power=true;
+        }
+    }
+    public void asignTargets()
+    {
+        for (int x=0; x<pass.length(); x++)
+        {
+            if (pass.charAt(x) == '1')
+            {
+                if (x==0){target1=degreesOnClickPower;}
+                else if (x==1){ if (degreesOnClickPower>=270) {target1 = degreesOnClickPower-270;} else {target1=degreesOnClickPower+90;}}
+                else if (x==2){ if (degreesOnClickPower>=180) {target1 = degreesOnClickPower-180;} else {target1=degreesOnClickPower+180;}}
+                else if (x==3){if (degreesOnClickPower>=90) {target1 = degreesOnClickPower-90;} else {target1=degreesOnClickPower+270;}}
+                Log.e("Target1", String.valueOf(target1));
+                Log.e("degreesOn11ClickPower", String.valueOf(degreesOnClickPower));
+            }
+        }
+        for (int x=0; x<pass.length(); x++)
+        {
+            if (pass.charAt(x) == '2')
+            {
+                if (x==0){target2=degreesOnClickPower;}
+                else if (x==1){ if (degreesOnClickPower>=270) {target2 = degreesOnClickPower-270;} else {target2=degreesOnClickPower+90;}}
+                else if (x==2){ if (degreesOnClickPower>=180) {target2 = degreesOnClickPower-180;} else {target2=degreesOnClickPower+180;}}
+                else if (x==3){if (degreesOnClickPower>=90) {target2 = degreesOnClickPower-90;} else {target2=degreesOnClickPower+270;}}
+            }
+        }
+        for (int x=0; x<pass.length(); x++)
+        {
+            if (pass.charAt(x) == '3')
+            {
+                if (x==0){target3=degreesOnClickPower;}
+                else if (x==1){ if (degreesOnClickPower>=270) {target3 = degreesOnClickPower-270;} else {target3=degreesOnClickPower+90;}}
+                else if (x==2){ if (degreesOnClickPower>=180) {target3 = degreesOnClickPower-180;} else {target3=degreesOnClickPower+180;}}
+                else if (x==3){if (degreesOnClickPower>=90) {target3 = degreesOnClickPower-90;} else {target3=degreesOnClickPower+270;}}
+            }
+        }
+        for (int x=0; x<pass.length(); x++)
+        {
+            if (pass.charAt(x) == '4')
+            {
+                if (x==0){target4=degreesOnClickPower;}
+                else if (x==1){ if (degreesOnClickPower>=270) {target4 = degreesOnClickPower-270;} else {target4=degreesOnClickPower+90;}}
+                else if (x==2){ if (degreesOnClickPower>=180) {target4 = degreesOnClickPower-180;} else {target4=degreesOnClickPower+180;}}
+                else if (x==3){if (degreesOnClickPower>=90) {target4 = degreesOnClickPower-90;} else {target4=degreesOnClickPower+270;}}
+            }
         }
     }
     @Override
     public void onSensorChanged(SensorEvent event)
     {
+        if (timesPowerOn>4){Intent mainActivity = new Intent(this, MainActivity.class);startActivity(mainActivity);}
+        else if (timesPowerOn ==1){targetDegrees=target1;}
+        else if (timesPowerOn ==2){targetDegrees=target2;}
+        else if (timesPowerOn ==3){targetDegrees=target3;}
+        else if (timesPowerOn ==4){targetDegrees=target4;}
+        else {}
         currentDegrees = Math.round(event.values[0]); //To get the Current Orientation in degrees rounded.
         float a = Math.abs(currentDegrees - targetDegrees);
         float b = Math.abs(360 - Math.abs(currentDegrees - targetDegrees));
         if (a > b) {nearestToTarget = b;}
         else {nearestToTarget = a;}
-
         if (power){ bars(nearestToTarget);}
-
     }
     @Override
     protected void onResume()

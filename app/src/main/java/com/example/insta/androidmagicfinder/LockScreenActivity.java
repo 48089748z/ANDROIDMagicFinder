@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.SpannableString;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
@@ -14,11 +13,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextClock;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
-
-
-
 public class LockScreenActivity extends AppCompatActivity
 {
     Time today = new Time(Time.getCurrentTimezone());
@@ -101,6 +96,7 @@ public class LockScreenActivity extends AppCompatActivity
         TVupperline.setShadowLayer(3, 3, 3, Color.BLACK);
         TVlowerline.setShadowLayer(3, 3, 3, Color.BLACK);
         TVupperline.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        TVupperline.setTextColor(Color.WHITE);
         TVinfo.setShadowLayer(3, 3, 3, Color.BLACK);
     }
     public void onClickOK()
@@ -152,7 +148,7 @@ public class LockScreenActivity extends AppCompatActivity
         spannableString3.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
         TV3.setText(spannableString3);
 
-        SpannableString spannableString4 =  new SpannableString("3 GHI");
+        SpannableString spannableString4 =  new SpannableString("4 GHI");
         spannableString4.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
         spannableString4.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
         TV4.setText(spannableString4);
