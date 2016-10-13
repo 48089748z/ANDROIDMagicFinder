@@ -7,28 +7,21 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-public class MainActivity extends AppCompatActivity  implements SensorEventListener
+public class BlockModeActivity extends AppCompatActivity  implements SensorEventListener
 {
-    private Integer buttonClicked = 0;
+    private String pass;
     private float nearestToTarget;
-    private boolean numericMode = false;
-    private boolean blockMode = false;
     private boolean power = false;
-    private boolean firstHit = true;
     private SensorManager sensorManager;
     private float targetDegrees;
     private float currentDegrees;
-    private float degreesOnClickPower;
-    private long lastMagneticClickMillis = 0;
-    private long lastNumericClickMillis = 0;
     ImageButton IBpower;
-    ImageButton IBnumeric;
-    ImageButton IBmagnetic;
     ImageButton IB1;
     ImageButton IB2;
     ImageButton IB3;
@@ -49,7 +42,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_block_mode);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         beep = MediaPlayer.create(this, R.raw.beep);
         IB1 = (ImageButton) this.findViewById(R.id.IB1);
@@ -65,71 +58,22 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IB11 = (ImageButton) this.findViewById(R.id.IB11);
         IB12 = (ImageButton) this.findViewById(R.id.IB12);
         IBpower = (ImageButton) this.findViewById(R.id.IBpower);
-        IBnumeric = (ImageButton) this.findViewById(R.id.IBnumeric);
-        IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
         TVmode = (TextView) this.findViewById(R.id.TVmode);
-        TVmode.setText("                           .");
+        TVmode.setText("                                                       .");
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
-        IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1;}});
-        IB2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=2;}});
-        IB3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=3;}});
-        IB4.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=4;}});
-        IB5.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=5;}});
-        IB6.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=6;}});
-        IB7.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=7;}});
-        IB8.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=8;}});
-        IB9.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=9;}});
-        IB10.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=10;}});
-        IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11;}});
-        IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12;}});
         powerOff();
-        IBmagnetic.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
-        {
-            powerOff();
-            lastMagneticClickMillis = System.currentTimeMillis();
-           if (lastNumericClickMillis+400>System.currentTimeMillis() && lastNumericClickMillis!=0)
-           {
-               blockMode = true;
-               numericMode = false;
-               TVmode.setText("                                                       .");
-               startBlockMode();
-           }
-           else
-           {
 
-               numericMode = false;
-               blockMode = false;
-               firstHit = true;
-               buttonClicked = 0;
-               TVmode.setText("                           .");
-           }
-        }});
-        IBnumeric.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
-        {
-            powerOff();
-            lastNumericClickMillis = System.currentTimeMillis();
-            if (lastMagneticClickMillis+400>System.currentTimeMillis() && lastMagneticClickMillis!=0)
-            {
-                blockMode=true;
-                numericMode = false;
-                TVmode.setText("                                                       .");
-                startBlockMode();
-            }
-            else
-            {
-                numericMode = true;
-                blockMode = false;
-                firstHit = true;
-                buttonClicked = 0;
-                TVmode.setText("                                                                                .");
-            }
-        }});
+        pass = getIntent().getExtras().getString("passcode");
+        Log.e("Passcode", pass);
+       // get extras
+                //target degrees = 2314 180 0 90 270
+
     }
     public void playBeep(final long milliseconds)
     {
         //GOTTA PLAY THE BEEP EACH X MILLISECONDS...
-       // beep.start();
+        // beep.start();
     }
     public void onClickPower()
     {
@@ -143,101 +87,19 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         {
             Picasso.with(this).load(R.drawable.on).fit().into(IBpower); //Change Power ImageButton ON
             power=true;
-            if (numericMode) {startNumericMode();}
-            else {startMagneticMode();}
         }
     }
-    public void startMagneticMode()
-    {
-        degreesOnClickPower = currentDegrees;
-        if (firstHit && buttonClicked!=0)
-        {
-            if (buttonClicked==1){onClick1();}
-            if (buttonClicked==2){onClick2();}
-            if (buttonClicked==3){onClick3();}
-            if (buttonClicked==4){onClick4();}
-            if (buttonClicked==5){onClick5();}
-            if (buttonClicked==6){onClick6();}
-            if (buttonClicked==7){onClick7();}
-            if (buttonClicked==8){onClick8();}
-            if (buttonClicked==9){onClick9();}
-            if (buttonClicked==10){onClick10();}
-            if (buttonClicked==11){onClick11();}
-            if (buttonClicked==12){onClick12();}
-        }
-        else {onClick3();}
-        firstHit = false;
-    }
-    public void onClick1()
-    {
-        if (degreesOnClickPower>=330) {targetDegrees = degreesOnClickPower-330;}
-        else {targetDegrees=degreesOnClickPower+30;}
-    }
-    public void onClick2()
-    {
-        if (degreesOnClickPower>=300) {targetDegrees = degreesOnClickPower-300;}
-        else {targetDegrees=degreesOnClickPower+60;}
-    }
-    public void onClick3()
-    {
-        if (degreesOnClickPower>=270) {targetDegrees = degreesOnClickPower-270;}
-        else {targetDegrees=degreesOnClickPower+90;}
-    }
-    public void onClick4()
-    {
-        if (degreesOnClickPower>=240) {targetDegrees = degreesOnClickPower-240;}
-        else {targetDegrees=degreesOnClickPower+120;}
-    }
-    public void onClick5()
-    {
-        if (degreesOnClickPower>=210) {targetDegrees = degreesOnClickPower-210;}
-        else {targetDegrees=degreesOnClickPower+150;}
-    }
-    public void onClick6()
-    {
-        if (degreesOnClickPower>=180) {targetDegrees = degreesOnClickPower-180;}
-        else {targetDegrees=degreesOnClickPower+180;}
-    }
-    public void onClick7()
-    {
-        if (degreesOnClickPower>=150) {targetDegrees = degreesOnClickPower-150;}
-        else {targetDegrees=degreesOnClickPower+210;}
-    }
-    public void onClick8()
-    {
-        if (degreesOnClickPower>=120) {targetDegrees = degreesOnClickPower-120;}
-        else {targetDegrees=degreesOnClickPower+240;}
-    }
-    public void onClick9()
-    {
-        if (degreesOnClickPower>=90) {targetDegrees = degreesOnClickPower-90;}
-        else {targetDegrees=degreesOnClickPower+270;}
-    }
-    public void onClick10()
-    {
-        if (degreesOnClickPower>=60) {targetDegrees = degreesOnClickPower-60;}
-        else {targetDegrees=degreesOnClickPower+300;}
-    }
-    public void onClick11()
-    {
-        if (degreesOnClickPower>=30) {targetDegrees = degreesOnClickPower-30;}
-        else {targetDegrees=degreesOnClickPower+330;}
-    }
-    public void onClick12() {targetDegrees = degreesOnClickPower;}
-
-
     @Override
     public void onSensorChanged(SensorEvent event)
     {
         currentDegrees = Math.round(event.values[0]); //To get the Current Orientation in degrees rounded.
-        if (power && !numericMode && !blockMode)
-        {
-            float a = Math.abs(currentDegrees - targetDegrees);
-            float b = Math.abs(360 - Math.abs(currentDegrees - targetDegrees));
-            if (a > b) {nearestToTarget = b;}
-            else {nearestToTarget = a;}
-            bars(nearestToTarget);
-        }
+        float a = Math.abs(currentDegrees - targetDegrees);
+        float b = Math.abs(360 - Math.abs(currentDegrees - targetDegrees));
+        if (a > b) {nearestToTarget = b;}
+        else {nearestToTarget = a;}
+
+        if (power){ bars(nearestToTarget);}
+
     }
     @Override
     protected void onResume()
@@ -476,29 +338,5 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         Picasso.with(this).load(R.drawable.pl10).fit().into(IB10);
         Picasso.with(this).load(R.drawable.pl11).fit().into(IB11);
         Picasso.with(this).load(R.drawable.pl12).fit().into(IB12);
-    }
-    private Integer counter=0;
-    public void startNumericMode()
-    {
-        if (firstHit && buttonClicked!=0)
-        {
-            if (buttonClicked==1){twelveBars();}
-            else{oneBar();}
-            counter = buttonClicked;
-        }
-        else
-        {
-            if (counter == 1 || counter == 1-2) {twelveBars();}
-            else {oneBar();}
-        }
-        counter--;
-        firstHit = false;
-    }
-    public void startBlockMode()
-    {
-        Intent lockScreen = new Intent(this, LockScreenActivity.class);
-        try {Thread.sleep(1000);} //ESTO HA DE SER 20000 = 20secs
-        catch (InterruptedException ignored) {}
-        startActivity(lockScreen);
     }
 }

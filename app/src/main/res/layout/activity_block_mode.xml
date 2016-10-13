@@ -11,7 +11,7 @@
     android:paddingRight="0dp"
     android:paddingTop="20dp"
     android:background="@android:color/black"
-    tools:context="com.example.insta.androidmagicfinder.MainActivity">
+    tools:context="com.example.insta.androidmagicfinder.BlockModeActivity">
 
     <ImageButton
         android:background="@android:color/black"
@@ -165,3 +165,4 @@
 
 
 </RelativeLayout>
+

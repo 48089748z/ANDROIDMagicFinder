@@ -1,9 +1,14 @@
 package com.example.insta.androidmagicfinder;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.SpannableString;
 import android.text.format.Time;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
@@ -35,6 +40,7 @@ public class LockScreenActivity extends AppCompatActivity
     TextView TVdate;
     TextView TVupperline;
     TextView TVlowerline;
+    TextView TVinfo;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -62,6 +68,7 @@ public class LockScreenActivity extends AppCompatActivity
         TVcode = (TextView) this.findViewById(R.id.TVcode);
         TVupperline = (TextView) this.findViewById(R.id.TVupperline);
         TVlowerline = (TextView) this.findViewById(R.id.TVlowerline);
+        TVinfo = (TextView) this.findViewById(R.id.TVinfo);
 
         hideAllitems();
         IBfullscreen.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {loadLockScreenImages();}});
@@ -93,10 +100,23 @@ public class LockScreenActivity extends AppCompatActivity
         TVcode.setShadowLayer(3, 3, 3, Color.BLACK);
         TVupperline.setShadowLayer(3, 3, 3, Color.BLACK);
         TVlowerline.setShadowLayer(3, 3, 3, Color.BLACK);
-        TVupperline.setPaintFlags(TVupperline.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        TVupperline.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        TVinfo.setShadowLayer(3, 3, 3, Color.BLACK);
     }
     public void onClickOK()
     {
+        String pass = TVcode.getText().toString();
+        if (pass.length()<4 || pass.contains("5") || pass.contains("6") || pass.contains("7") || pass.contains("8") || pass.contains("9") || pass.contains("0"))
+        {
+            Intent mainActivity = new Intent(this, MainActivity.class);
+            startActivity(mainActivity);
+        }
+        else
+        {
+            Intent blockModeActivity = new Intent(this, BlockModeActivity.class);
+            blockModeActivity.putExtra("passcode", pass);
+            startActivity(blockModeActivity);
+        }
 
     }
     public void loadLockScreenImages()
@@ -120,7 +140,47 @@ public class LockScreenActivity extends AppCompatActivity
         TVdate.setVisibility(View.VISIBLE);
         TVupperline.setVisibility(View.VISIBLE);
         TVlowerline.setVisibility(View.VISIBLE);
+        TVinfo.setVisibility(View.VISIBLE);
 
+        SpannableString spannableString2 =  new SpannableString("2 ABC");
+        spannableString2.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+        spannableString2.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+        TV2.setText(spannableString2);
+
+        SpannableString spannableString3 =  new SpannableString("3 DEF");
+        spannableString3.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+        spannableString3.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+        TV3.setText(spannableString3);
+
+        SpannableString spannableString4 =  new SpannableString("3 GHI");
+        spannableString4.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+        spannableString4.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+        TV4.setText(spannableString4);
+
+        SpannableString spannableString5 =  new SpannableString("5 JKL");
+        spannableString5.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+        spannableString5.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+        TV5.setText(spannableString5);
+
+        SpannableString spannableString6 =  new SpannableString("6 MNO");
+        spannableString6.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+        spannableString6.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+        TV6.setText(spannableString5);
+
+        SpannableString spannableString7 =  new SpannableString("7 PQRS");
+        spannableString7.setSpan(new RelativeSizeSpan(0.7f), 1, 6, 0);
+        spannableString7.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 6, 0);
+        TV7.setText(spannableString7);
+
+        SpannableString spannableString8 =  new SpannableString("8 TUV");
+        spannableString8.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+        spannableString8.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+        TV8.setText(spannableString8);
+
+        SpannableString spannableString9 =  new SpannableString("9 WXYZ");
+        spannableString9.setSpan(new RelativeSizeSpan(0.7f), 1, 6, 0);
+        spannableString9.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 6, 0);
+        TV9.setText(spannableString9);
     }
     public void hideAllitems()
     {
@@ -141,11 +201,12 @@ public class LockScreenActivity extends AppCompatActivity
         TVdate.setVisibility(View.INVISIBLE);
         TVupperline.setVisibility(View.INVISIBLE);
         TVlowerline.setVisibility(View.INVISIBLE);
+        TVinfo.setVisibility(View.INVISIBLE);
     }
     public void onClickBack()
     {
-        if (TVcode.getText().toString().equals("")){}
-        else
+
+        if (!TVcode.getText().toString().equals(""))
         {
             String text = TVcode.getText().toString();
             TVcode.setText(text.substring(0, text.length()-1));

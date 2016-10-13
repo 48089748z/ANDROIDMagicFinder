@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LockScreenActivity"></activity>
+        <activity android:name=".LockScreenActivity" />
+        <activity android:name=".BlockModeActivity"></activity>
     </application>
 
 </manifest>
