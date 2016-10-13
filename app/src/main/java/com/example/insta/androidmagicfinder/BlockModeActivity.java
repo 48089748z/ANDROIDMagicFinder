@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 public class BlockModeActivity extends AppCompatActivity  implements SensorEventListener
 {
+    private Integer cont =0;
     private Integer timesPowerOn=0;
     private String pass;
     private float nearestToTarget;
@@ -66,14 +67,10 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         IB12 = (ImageButton) this.findViewById(R.id.IB12);
         IBpower = (ImageButton) this.findViewById(R.id.IBpower);
         TVmode = (TextView) this.findViewById(R.id.TVmode);
+        powerOff();
         TVmode.setText("                                                       .");
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
-        powerOff();
         pass = getIntent().getExtras().getString("passcode");
-        asignTargets();
-        degreesOnClickPower = currentDegrees;
-        Log.e("Target1 MAIN", String.valueOf(target1));
-        Log.e("ClickPr MAIN", String.valueOf(degreesOnClickPower));
     }
     public void playBeep(final long milliseconds)
     {
@@ -105,8 +102,6 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
                 else if (x==1){ if (degreesOnClickPower>=270) {target1 = degreesOnClickPower-270;} else {target1=degreesOnClickPower+90;}}
                 else if (x==2){ if (degreesOnClickPower>=180) {target1 = degreesOnClickPower-180;} else {target1=degreesOnClickPower+180;}}
                 else if (x==3){if (degreesOnClickPower>=90) {target1 = degreesOnClickPower-90;} else {target1=degreesOnClickPower+270;}}
-                Log.e("Target1", String.valueOf(target1));
-                Log.e("degreesOn11ClickPower", String.valueOf(degreesOnClickPower));
             }
         }
         for (int x=0; x<pass.length(); x++)
@@ -150,6 +145,13 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         else if (timesPowerOn ==4){targetDegrees=target4;}
         else {}
         currentDegrees = Math.round(event.values[0]); //To get the Current Orientation in degrees rounded.
+        if (currentDegrees!=0.0 && cont==0)
+        {
+            cont++;
+            degreesOnClickPower = currentDegrees;
+            Log.e("Current DEGREES MAIN", String.valueOf(currentDegrees));
+            asignTargets();
+        }
         float a = Math.abs(currentDegrees - targetDegrees);
         float b = Math.abs(360 - Math.abs(currentDegrees - targetDegrees));
         if (a > b) {nearestToTarget = b;}
