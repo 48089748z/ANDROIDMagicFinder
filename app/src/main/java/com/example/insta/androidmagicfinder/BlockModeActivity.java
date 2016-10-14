@@ -72,11 +72,6 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
         pass = getIntent().getExtras().getString("passcode");
     }
-    public void playBeep(final long milliseconds)
-    {
-        //GOTTA PLAY THE BEEP EACH X MILLISECONDS...
-        // beep.start();
-    }
     public void onClickPower()
     {
         if (power)
@@ -395,5 +390,9 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         Picasso.with(this).load(R.drawable.pl10).fit().into(IB10);
         Picasso.with(this).load(R.drawable.pl11).fit().into(IB11);
         Picasso.with(this).load(R.drawable.pl12).fit().into(IB12);
+    }
+    public void playBeep(final long milliseconds)
+    {
+
     }
 }

@@ -126,11 +126,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
             }
         }});
     }
-    public void playBeep(final long milliseconds)
-    {
-        //GOTTA PLAY THE BEEP EACH X MILLISECONDS...
-       // beep.start();
-    }
     public void onClickPower()
     {
         if (power)
@@ -499,5 +494,9 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         try {Thread.sleep(1000);} //ESTO HA DE SER 20000 = 20secs
         catch (InterruptedException ignored) {}
         startActivity(lockScreen);
+    }
+    public void playBeep(final long milliseconds)
+    {
+
     }
 }
