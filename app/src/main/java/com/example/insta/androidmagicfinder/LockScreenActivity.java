@@ -73,16 +73,16 @@ public class LockScreenActivity extends AppCompatActivity
         hideAllitems();
         IBfullscreen.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {loadLockScreenImages();}});
         IBback.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickBack();}});
-        TV0.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4) {TVcode.setText(TVcode.getText().toString()+"0");TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
-        TV1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"1"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
-        TV2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"2"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
-        TV3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"3"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
-        TV4.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"4"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
-        TV5.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"5"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
-        TV6.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"6"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
-        TV7.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"7"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
-        TV8.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"8"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
-        TV9.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"9"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV0.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4) {TVcode.setText(TVcode.getText().toString()+"0");TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
+        TV1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"1"); TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
+        TV2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"2"); TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
+        TV3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"3"); TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
+        TV4.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"4"); TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
+        TV5.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"5"); TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
+        TV6.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"6"); TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
+        TV7.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"7"); TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
+        TV8.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"8"); TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
+        TV9.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"9"); TVasteriscs.setText(TVasteriscs.getText().toString()+"*");}}});
         TVok.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickOK();}});
         TCtime.setShadowLayer(3, 3, 3, Color.BLACK);
         TVdate.setShadowLayer(3, 3, 3, Color.BLACK);
@@ -108,7 +108,7 @@ public class LockScreenActivity extends AppCompatActivity
     public void onClickOK()
     {
         String pass = TVcode.getText().toString();
-        if (pass.length()<4 || pass.contains("5") || pass.contains("6") || pass.contains("7") || pass.contains("8") || pass.contains("9") || pass.contains("0"))
+        if (impossibleCode(pass)) //If code is impossible return to MainActivity = Magnetic Mode
         {
             Intent mainActivity = new Intent(this, MainActivity.class);
             startActivity(mainActivity);
@@ -119,6 +119,26 @@ public class LockScreenActivity extends AppCompatActivity
             blockModeActivity.putExtra("passcode", pass);
             startActivity(blockModeActivity);
         }
+    }
+    public boolean impossibleCode(String pass)
+    {
+        if (pass.length()<4 || pass.contains("5") || pass.contains("6") || pass.contains("7") || pass.contains("8") || pass.contains("9") || pass.contains("0"))
+        {
+           return true;
+        }
+        Integer numberOf1s=0;
+        Integer numberOf2s=0;
+        Integer numberOf3s=0;
+        Integer numberOf4s=0;
+        for (int x=0; x<pass.length(); x++)
+        {
+            if (pass.charAt(x)=='1'){numberOf1s++;}
+            if (pass.charAt(x)=='2'){numberOf2s++;}
+            if (pass.charAt(x)=='3'){numberOf3s++;}
+            if (pass.charAt(x)=='4'){numberOf4s++;}
+        }
+        if (numberOf1s>1 || numberOf2s>1 || numberOf3s>1 || numberOf4s>1) {return true;}
+        else{return false;}
 
     }
     public void loadLockScreenImages()
