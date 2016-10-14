@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 public class LockScreenActivity extends AppCompatActivity
 {
+    String realCode;
     Time today = new Time(Time.getCurrentTimezone());
     ImageButton IBfullscreen;
     ImageButton IBback;
@@ -36,6 +37,8 @@ public class LockScreenActivity extends AppCompatActivity
     TextView TVupperline;
     TextView TVlowerline;
     TextView TVinfo;
+    TextView TVasteriscs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -64,20 +67,22 @@ public class LockScreenActivity extends AppCompatActivity
         TVupperline = (TextView) this.findViewById(R.id.TVupperline);
         TVlowerline = (TextView) this.findViewById(R.id.TVlowerline);
         TVinfo = (TextView) this.findViewById(R.id.TVinfo);
+        TVasteriscs = (TextView) this.findViewById(R.id.TVasteriscs);
+
 
         hideAllitems();
         IBfullscreen.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {loadLockScreenImages();}});
         IBback.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickBack();}});
-        TV0.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"0");}}});
-        TV1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"1");}}});
-        TV2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"2");}}});
-        TV3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"3");}}});
-        TV4.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"4");}}});
-        TV5.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"5");}}});
-        TV6.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"6");}}});
-        TV7.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"7");}}});
-        TV8.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"8");}}});
-        TV9.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"9");}}});
+        TV0.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4) {TVcode.setText(TVcode.getText().toString()+"0");TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"1"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"2"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"3"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV4.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"4"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV5.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"5"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV6.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"6"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV7.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"7"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV8.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"8"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
+        TV9.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {if (TVcode.getText().toString().length()<4){TVcode.setText(TVcode.getText().toString()+"9"); TVasteriscs.setText(TVasteriscs.getText().toString()+"* ");}}});
         TVok.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickOK();}});
         TCtime.setShadowLayer(3, 3, 3, Color.BLACK);
         TVdate.setShadowLayer(3, 3, 3, Color.BLACK);
@@ -98,6 +103,7 @@ public class LockScreenActivity extends AppCompatActivity
         TVupperline.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         TVupperline.setTextColor(Color.WHITE);
         TVinfo.setShadowLayer(3, 3, 3, Color.BLACK);
+        TVasteriscs.setShadowLayer(3, 3, 3, Color.BLACK);
     }
     public void onClickOK()
     {
@@ -118,6 +124,7 @@ public class LockScreenActivity extends AppCompatActivity
     public void loadLockScreenImages()
     {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+        this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         Picasso.with(this).load(R.drawable.lockscreenbackground).fit().into(IBfullscreen);
         IBback.setVisibility(View.VISIBLE);
         TV0.setVisibility(View.VISIBLE);
@@ -131,12 +138,13 @@ public class LockScreenActivity extends AppCompatActivity
         TV8.setVisibility(View.VISIBLE);
         TV9.setVisibility(View.VISIBLE);
         TVok.setVisibility(View.VISIBLE);
-        TVcode.setVisibility(View.VISIBLE);
+        //TVcode.setVisibility(View.VISIBLE);
         TCtime.setVisibility(View.VISIBLE);
         TVdate.setVisibility(View.VISIBLE);
         TVupperline.setVisibility(View.VISIBLE);
         TVlowerline.setVisibility(View.VISIBLE);
         TVinfo.setVisibility(View.VISIBLE);
+        TVasteriscs.setVisibility(View.VISIBLE);
 
         SpannableString spannableString2 =  new SpannableString("2 ABC");
         spannableString2.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
@@ -161,7 +169,7 @@ public class LockScreenActivity extends AppCompatActivity
         SpannableString spannableString6 =  new SpannableString("6 MNO");
         spannableString6.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
         spannableString6.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
-        TV6.setText(spannableString5);
+        TV6.setText(spannableString6);
 
         SpannableString spannableString7 =  new SpannableString("7 PQRS");
         spannableString7.setSpan(new RelativeSizeSpan(0.7f), 1, 6, 0);
@@ -198,6 +206,7 @@ public class LockScreenActivity extends AppCompatActivity
         TVupperline.setVisibility(View.INVISIBLE);
         TVlowerline.setVisibility(View.INVISIBLE);
         TVinfo.setVisibility(View.INVISIBLE);
+        TVasteriscs.setVisibility(View.INVISIBLE);
     }
     public void onClickBack()
     {
@@ -205,7 +214,9 @@ public class LockScreenActivity extends AppCompatActivity
         if (!TVcode.getText().toString().equals(""))
         {
             String text = TVcode.getText().toString();
+            String asteriscs = TVasteriscs.getText().toString();
             TVcode.setText(text.substring(0, text.length()-1));
+            TVasteriscs.setText(asteriscs.substring(0, asteriscs.length()-1));
         }
     }
 }
