@@ -143,9 +143,9 @@ public class LockScreenActivity extends AppCompatActivity
     }
     public void loadLockScreenImages()
     {
+        Picasso.with(this).load(R.drawable.lockscreenbackground).fit().into(IBfullscreen);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        Picasso.with(this).load(R.drawable.lockscreenbackground).fit().into(IBfullscreen);
         IBback.setVisibility(View.VISIBLE);
         TV0.setVisibility(View.VISIBLE);
         TV1.setVisibility(View.VISIBLE);
