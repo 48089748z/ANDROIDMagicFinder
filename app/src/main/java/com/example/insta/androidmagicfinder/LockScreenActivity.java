@@ -38,6 +38,7 @@ public class LockScreenActivity extends AppCompatActivity
     TextView TVlowerline;
     TextView TVinfo;
     TextView TVasteriscs;
+    WindowManager.LayoutParams lp; //To Change Brightness
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,6 +46,11 @@ public class LockScreenActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_lock_screen);
+
+        lp = this.getWindow().getAttributes();
+        lp.screenBrightness = 0.0f;
+        this.getWindow().setAttributes(lp);
+
         today.setToNow();
         IBfullscreen = (ImageButton) this.findViewById(R.id.IBfullscreen);
         IBback = (ImageButton) this.findViewById(R.id.IBback);
@@ -143,6 +149,8 @@ public class LockScreenActivity extends AppCompatActivity
     }
     public void loadLockScreenImages()
     {
+        lp.screenBrightness = 255.0f;
+        this.getWindow().setAttributes(lp);
         Picasso.with(this).load(R.drawable.lockscreenbackground).fit().into(IBfullscreen);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
