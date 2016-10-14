@@ -11,7 +11,8 @@
     android:paddingRight="0dp"
     android:paddingTop="20dp"
     android:background="@android:color/black"
-    tools:context="com.example.insta.androidmagicfinder.BlockModeActivity">
+    tools:context="com.example.insta.androidmagicfinder.BlockModeActivity"
+    android:keepScreenOn="true">
 
     <ImageButton
         android:background="@android:color/black"

@@ -9,8 +9,8 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-
     android:fitsSystemWindows="true"
+    android:keepScreenOn="true">
 
     tools:context="com.example.insta.androidmagicfinder.LockScreenActivity">
 
