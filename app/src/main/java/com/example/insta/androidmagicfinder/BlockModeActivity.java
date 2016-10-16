@@ -157,7 +157,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     protected void onResume()
     {
         super.onResume();
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_GAME);  //For the System's Orientation Sensor Registered Listeners
+        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_FASTEST);  //For the System's Orientation Sensor Registered Listeners
     }
     @Override
     protected void onPause()
@@ -343,8 +343,6 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         Picasso.with(this).load(R.drawable.ql11).fit().into(IB11);
         Picasso.with(this).load(R.drawable.ql12).fit().into(IB12);
     }
-    @Override
-    protected void onStop() {super.onStop();Intent mainActivity = new Intent(this, MainActivity.class);startActivity(mainActivity);}
     public void tenBars()
     {
         playBeep(80);
