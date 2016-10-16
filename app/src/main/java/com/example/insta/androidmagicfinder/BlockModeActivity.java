@@ -74,7 +74,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void onClickPower()
     {
-        if (timesPowerOn>3){Intent mainActivity = new Intent(this, MainActivity.class);startActivity(mainActivity);}
+        if (timesPowerOn>3){onStop();}
         if (power)
         {
             Picasso.with(this).load(R.drawable.off).fit().into(IBpower); //Change Power ImageButton OFF}
@@ -201,7 +201,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void oneBar()
     {
-        playBeep(100);
+        playBeep(350);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.ql2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.ql3).fit().into(IB3);
@@ -217,7 +217,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void twoBars()
     {
-        playBeep(150);
+        playBeep(320);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.ql3).fit().into(IB3);
@@ -233,7 +233,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void threeBars()
     {
-        playBeep(200);
+        playBeep(290);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -249,7 +249,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void fourBars()
     {
-        playBeep(250);
+        playBeep(260);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -265,7 +265,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void fiveBars()
     {
-        playBeep(300);
+        playBeep(230);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -281,7 +281,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void sixBars()
     {
-        playBeep(350);
+        playBeep(200);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -297,7 +297,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void sevenBars()
     {
-        playBeep(400);
+        playBeep(170);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -313,7 +313,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void eightBars()
     {
-        playBeep(500);
+        playBeep(140);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -329,7 +329,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void nineBars()
     {
-        playBeep(600);
+        playBeep(110);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -343,9 +343,11 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         Picasso.with(this).load(R.drawable.ql11).fit().into(IB11);
         Picasso.with(this).load(R.drawable.ql12).fit().into(IB12);
     }
+    @Override
+    protected void onStop() {super.onStop();Intent mainActivity = new Intent(this, MainActivity.class);startActivity(mainActivity);}
     public void tenBars()
     {
-        playBeep(700);
+        playBeep(80);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -361,7 +363,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void elevenBars()
     {
-        playBeep(800);
+        playBeep(50);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -377,7 +379,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void twelveBars()
     {
-        playBeep(900);
+        playBeep(0);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -393,6 +395,12 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void playBeep(long milliseconds)
     {
-
+        if (beep.isPlaying()){}
+        else
+        {
+            try {Thread.sleep(milliseconds);}
+            catch (InterruptedException ignored) {}
+            beep.start();
+        }
     }
 }

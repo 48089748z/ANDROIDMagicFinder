@@ -483,6 +483,16 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         Picasso.with(this).load(R.drawable.pl11).fit().into(IB11);
         Picasso.with(this).load(R.drawable.pl12).fit().into(IB12);
     }
+    public void playBeep(long milliseconds)
+    {
+        if (beep.isPlaying()){}
+        else
+        {
+            try {Thread.sleep(milliseconds);}
+            catch (InterruptedException ignored) {}
+            beep.start();
+        }
+    }
     private Integer counter=0;
     public void startNumericMode()
     {
@@ -527,15 +537,5 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
 
                     }
                 }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {public void onClick(DialogInterface dialog, int which){}}).setIcon(R.drawable.info).show();
-    }
-    public void playBeep(long milliseconds)
-    {
-        if (beep.isPlaying()){}
-        else
-        {
-            try {Thread.sleep(milliseconds);}
-            catch (InterruptedException ignored) {}
-            beep.start();
-        }
     }
 }

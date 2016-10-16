@@ -39,7 +39,6 @@ public class LockScreenActivity extends AppCompatActivity
     TextView TVinfo;
     TextView TVasteriscs;
     WindowManager.LayoutParams lp; //To Change Brightness
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
