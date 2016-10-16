@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 public class LockScreenActivity extends AppCompatActivity
 {
-    String realCode;
     Time today = new Time(Time.getCurrentTimezone());
     ImageButton IBfullscreen;
     ImageButton IBback;
