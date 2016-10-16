@@ -1,10 +1,12 @@
 package com.example.insta.androidmagicfinder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        checkFirstRun();
         beep = MediaPlayer.create(this, R.raw.beep);
         IB1 = (ImageButton) this.findViewById(R.id.IB1);
         IB2 = (ImageButton) this.findViewById(R.id.IB2);
@@ -71,6 +74,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         TVmode.setText("                           .");
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
+        IBpower.setOnLongClickListener(new View.OnLongClickListener() {@Override public boolean onLongClick(View v) {openDialog();return false;}});
         IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1;}});
         IB2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=2;}});
         IB3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=3;}});
@@ -498,5 +502,26 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     public void playBeep(final long milliseconds)
     {
 
+    }
+    public void checkFirstRun()
+    {
+        boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
+        if (isFirstRun)
+        {
+            openDialog();
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isFirstRun", false).apply();
+        }
+    }
+    public void openDialog()
+    {
+        new AlertDialog.Builder(this).setTitle("         INFORMATION")
+                .setMessage("Click OK to open the guide of the app.\nClick CANCEL to exit.\n\nIf you want to open this screen again click and hold the power button.")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        //OPEN THE GUIDE
+
+                    }
+                }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {public void onClick(DialogInterface dialog, int which){}}).setIcon(R.drawable.info).show();
     }
 }
