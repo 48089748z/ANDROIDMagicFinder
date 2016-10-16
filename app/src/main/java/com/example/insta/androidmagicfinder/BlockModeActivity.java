@@ -74,6 +74,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void onClickPower()
     {
+        if (timesPowerOn>3){Intent mainActivity = new Intent(this, MainActivity.class);startActivity(mainActivity);}
         if (power)
         {
             Picasso.with(this).load(R.drawable.off).fit().into(IBpower); //Change Power ImageButton OFF}
@@ -133,8 +134,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     @Override
     public void onSensorChanged(SensorEvent event)
     {
-        if (timesPowerOn>4){Intent mainActivity = new Intent(this, MainActivity.class);startActivity(mainActivity);}
-        else if (timesPowerOn ==1){targetDegrees=target1;}
+        if (timesPowerOn ==1){targetDegrees=target1;}
         else if (timesPowerOn ==2){targetDegrees=target2;}
         else if (timesPowerOn ==3){targetDegrees=target3;}
         else if (timesPowerOn ==4){targetDegrees=target4;}
