@@ -9,11 +9,19 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity  implements SensorEventListener
 {
     private Integer buttonClicked = 0;
@@ -258,7 +266,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         else if (nearestToTarget*2<90) {tenBars();}
         else if (nearestToTarget*2<120) {nineBars();}
         else if (nearestToTarget*2<150) {eightBars();}
-        else if (nearestToTarget*2<180) {sevenBars();}
+        else if (nearestToTarget*2<180){sevenBars();}
         else if (nearestToTarget*2<210) {sixBars();}
         else if (nearestToTarget*2<240) {fiveBars();}
         else if (nearestToTarget*2<270) {fourBars();}
@@ -285,7 +293,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void oneBar()
     {
-        playBeep(100);
+        playBeep(350);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.ql2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.ql3).fit().into(IB3);
@@ -301,7 +309,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void twoBars()
     {
-        playBeep(150);
+        playBeep(320);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.ql3).fit().into(IB3);
@@ -317,7 +325,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void threeBars()
     {
-        playBeep(200);
+        playBeep(290);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -333,7 +341,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void fourBars()
     {
-        playBeep(250);
+        playBeep(260);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -349,7 +357,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void fiveBars()
     {
-        playBeep(300);
+        playBeep(230);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -365,7 +373,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void sixBars()
     {
-        playBeep(350);
+        playBeep(200);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -381,7 +389,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void sevenBars()
     {
-        playBeep(400);
+        playBeep(170);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -397,7 +405,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void eightBars()
     {
-        playBeep(500);
+        playBeep(140);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -413,7 +421,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void nineBars()
     {
-        playBeep(600);
+        playBeep(110);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -429,7 +437,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void tenBars()
     {
-        playBeep(700);
+        playBeep(80);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -445,7 +453,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void elevenBars()
     {
-        playBeep(800);
+        playBeep(50);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -461,7 +469,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void twelveBars()
     {
-        playBeep(900);
+        playBeep(0);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
@@ -499,10 +507,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         catch (InterruptedException ignored) {}
         startActivity(lockScreen);
     }
-    public void playBeep(final long milliseconds)
-    {
-
-    }
     public void checkFirstRun()
     {
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
@@ -515,7 +519,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     public void openDialog()
     {
         new AlertDialog.Builder(this).setTitle("         INFORMATION")
-                .setMessage("Click OK to open the guide of the app.\nClick CANCEL to exit.\n\nIf you want to open this screen again click and hold the power button.")
+                .setMessage("If you want to open this screen again press and hold the power button for 2 seconds.\n\nOK to open the tutorial of the app.\nCANCEL to exit.")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which)
                     {
@@ -523,5 +527,15 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
 
                     }
                 }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {public void onClick(DialogInterface dialog, int which){}}).setIcon(R.drawable.info).show();
+    }
+    public void playBeep(long milliseconds)
+    {
+        if (beep.isPlaying()){}
+        else
+        {
+            try {Thread.sleep(milliseconds);}
+            catch (InterruptedException ignored) {}
+            beep.start();
+        }
     }
 }

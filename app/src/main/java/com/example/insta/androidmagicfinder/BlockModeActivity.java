@@ -391,7 +391,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         Picasso.with(this).load(R.drawable.pl11).fit().into(IB11);
         Picasso.with(this).load(R.drawable.pl12).fit().into(IB12);
     }
-    public void playBeep(final long milliseconds)
+    public void playBeep(long milliseconds)
     {
 
     }
