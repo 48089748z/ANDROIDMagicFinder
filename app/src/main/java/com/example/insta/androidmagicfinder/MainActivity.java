@@ -496,6 +496,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     private Integer counter=0;
     public void startNumericMode()
     {
+
         if (firstHit && buttonClicked!=0)
         {
             if (buttonClicked==1){twelveBars();}
@@ -504,7 +505,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         }
         else
         {
-            if (counter == 1 || counter == 1-2) {twelveBars();}
+            if (counter == 1 || counter == 1-2 && buttonClicked!=0) {twelveBars();}
             else {oneBar();}
         }
         counter--;
