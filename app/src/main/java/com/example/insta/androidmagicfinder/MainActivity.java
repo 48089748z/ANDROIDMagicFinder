@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     ImageButton IB11;
     ImageButton IB12;
     MediaPlayer beep;
+    MediaPlayer beep2;
+    MediaPlayer beep3;
     TextView TVmode;
 
     @Override
@@ -63,6 +66,8 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         checkFirstRun();
         beep = MediaPlayer.create(this, R.raw.beep);
+        beep2  = MediaPlayer.create(this, R.raw.beep2);
+        beep3 = MediaPlayer.create(this, R.raw.beep3);
         IB1 = (ImageButton) this.findViewById(R.id.IB1);
         IB2 = (ImageButton) this.findViewById(R.id.IB2);
         IB3 = (ImageButton) this.findViewById(R.id.IB3);
@@ -276,6 +281,9 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void powerOff()
     {
+        stopAndPrepareBeep();
+        stopAndPrepareBeep2();
+        stopAndPrepareBeep3();
         power = false;
         Picasso.with(this).load(R.drawable.off).fit().into(IBpower);
         Picasso.with(this).load(R.drawable.ql1).fit().into(IB1);
@@ -483,16 +491,39 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         Picasso.with(this).load(R.drawable.pl11).fit().into(IB11);
         Picasso.with(this).load(R.drawable.pl12).fit().into(IB12);
     }
+    public void stopAndPrepareBeep() {if (beep.isPlaying()){beep.stop(); try {beep.prepare();} catch (IOException ignored){}}}
+    public void stopAndPrepareBeep2() {if (beep2.isPlaying()){beep2.stop(); try {beep2.prepare();} catch (IOException ignored){}}}
+    public void stopAndPrepareBeep3() {if (beep3.isPlaying()){beep3.stop(); try {beep3.prepare();} catch (IOException ignored){}}}
     public void playBeep(long milliseconds)
     {
-        if (beep.isPlaying()){}
+        if (milliseconds==0)
+        {
+            stopAndPrepareBeep();
+            stopAndPrepareBeep2();
+            if (beep3.isPlaying()){}
+            else {beep3.start();}
+        }
+        else if (milliseconds==50)
+        {
+            stopAndPrepareBeep();
+            stopAndPrepareBeep3();
+            if (beep2.isPlaying()){}
+            else {beep2.start();}
+        }
         else
         {
-            try {Thread.sleep(milliseconds);}
-            catch (InterruptedException ignored) {}
-            beep.start();
+            stopAndPrepareBeep2();
+            stopAndPrepareBeep3();
+            if (beep.isPlaying()){}
+            else
+            {
+                try {Thread.sleep(milliseconds);}
+                catch (InterruptedException ignored) {}
+                beep.start();
+            }
         }
     }
+
     private Integer counter=0;
     public void startNumericMode()
     {
