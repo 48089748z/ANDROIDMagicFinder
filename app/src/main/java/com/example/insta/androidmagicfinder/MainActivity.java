@@ -91,18 +91,18 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
         IBpower.setOnLongClickListener(new View.OnLongClickListener() {@Override public boolean onLongClick(View v) {openDialog();return false;}});
-        IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1;}});
-        IB2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=2;}});
-        IB3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=3;}});
-        IB4.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=4;}});
-        IB5.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=5;}});
-        IB6.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=6;}});
-        IB7.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=7;}});
-        IB8.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=8;}});
-        IB9.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=9;}});
-        IB10.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=10;}});
-        IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11;}});
-        IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12;}});
+        IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1; targetDegrees = currentDegrees;}});
+        IB2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=2; targetDegrees = currentDegrees;}});
+        IB3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=3; targetDegrees = currentDegrees;}});
+        IB4.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=4; targetDegrees = currentDegrees;}});
+        IB5.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=5; targetDegrees = currentDegrees;}});
+        IB6.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=6; targetDegrees = currentDegrees;}});
+        IB7.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=7; targetDegrees = currentDegrees;}});
+        IB8.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=8; targetDegrees = currentDegrees;}});
+        IB9.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=9; targetDegrees = currentDegrees;}});
+        IB10.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=10; targetDegrees = currentDegrees;}});
+        IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11; targetDegrees = currentDegrees;}});
+        IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12; targetDegrees = currentDegrees;}});
         powerOff();
         IBmagnetic.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
         {
@@ -165,80 +165,10 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     public void startMagneticMode()
     {
         degreesOnClickPower = currentDegrees;
-        if (firstHit && buttonClicked!=0)
-        {
-            if (buttonClicked==1){onClick1();}
-            if (buttonClicked==2){onClick2();}
-            if (buttonClicked==3){onClick3();}
-            if (buttonClicked==4){onClick4();}
-            if (buttonClicked==5){onClick5();}
-            if (buttonClicked==6){onClick6();}
-            if (buttonClicked==7){onClick7();}
-            if (buttonClicked==8){onClick8();}
-            if (buttonClicked==9){onClick9();}
-            if (buttonClicked==10){onClick10();}
-            if (buttonClicked==11){onClick11();}
-            if (buttonClicked==12){onClick12();}
-        }
-        else {onClick3();}
+        if (!firstHit && buttonClicked==0) {onClick9();}
         firstHit = false;
     }
-    public void onClick1()
-    {
-        if (degreesOnClickPower>=330) {targetDegrees = degreesOnClickPower-330;}
-        else {targetDegrees=degreesOnClickPower+30;}
-    }
-    public void onClick2()
-    {
-        if (degreesOnClickPower>=300) {targetDegrees = degreesOnClickPower-300;}
-        else {targetDegrees=degreesOnClickPower+60;}
-    }
-    public void onClick3()
-    {
-        if (degreesOnClickPower>=270) {targetDegrees = degreesOnClickPower-270;}
-        else {targetDegrees=degreesOnClickPower+90;}
-    }
-    public void onClick4()
-    {
-        if (degreesOnClickPower>=240) {targetDegrees = degreesOnClickPower-240;}
-        else {targetDegrees=degreesOnClickPower+120;}
-    }
-    public void onClick5()
-    {
-        if (degreesOnClickPower>=210) {targetDegrees = degreesOnClickPower-210;}
-        else {targetDegrees=degreesOnClickPower+150;}
-    }
-    public void onClick6()
-    {
-        if (degreesOnClickPower>=180) {targetDegrees = degreesOnClickPower-180;}
-        else {targetDegrees=degreesOnClickPower+180;}
-    }
-    public void onClick7()
-    {
-        if (degreesOnClickPower>=150) {targetDegrees = degreesOnClickPower-150;}
-        else {targetDegrees=degreesOnClickPower+210;}
-    }
-    public void onClick8()
-    {
-        if (degreesOnClickPower>=120) {targetDegrees = degreesOnClickPower-120;}
-        else {targetDegrees=degreesOnClickPower+240;}
-    }
-    public void onClick9()
-    {
-        if (degreesOnClickPower>=90) {targetDegrees = degreesOnClickPower-90;}
-        else {targetDegrees=degreesOnClickPower+270;}
-    }
-    public void onClick10()
-    {
-        if (degreesOnClickPower>=60) {targetDegrees = degreesOnClickPower-60;}
-        else {targetDegrees=degreesOnClickPower+300;}
-    }
-    public void onClick11()
-    {
-        if (degreesOnClickPower>=30) {targetDegrees = degreesOnClickPower-30;}
-        else {targetDegrees=degreesOnClickPower+330;}
-    }
-    public void onClick12() {targetDegrees = degreesOnClickPower;}
+
 
     @Override
     public void onSensorChanged(SensorEvent event)
@@ -585,4 +515,81 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
                     }
                 }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {public void onClick(DialogInterface dialog, int which){}}).setIcon(R.drawable.info).show();
     }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        stopAndPrepareBeep0();
+        stopAndPrepareBeep();
+        stopAndPrepareBeep2();
+        stopAndPrepareBeep3();
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        stopAndPrepareBeep0();
+        stopAndPrepareBeep();
+        stopAndPrepareBeep2();
+        stopAndPrepareBeep3();
+    }
+
+    public void onClick1()
+    {
+        if (degreesOnClickPower>=330) {targetDegrees = degreesOnClickPower-330;}
+        else {targetDegrees=degreesOnClickPower+30;}
+    }
+    public void onClick2()
+    {
+        if (degreesOnClickPower>=300) {targetDegrees = degreesOnClickPower-300;}
+        else {targetDegrees=degreesOnClickPower+60;}
+    }
+    public void onClick3()
+    {
+        if (degreesOnClickPower>=270) {targetDegrees = degreesOnClickPower-270;}
+        else {targetDegrees=degreesOnClickPower+90;}
+    }
+    public void onClick4()
+    {
+        if (degreesOnClickPower>=240) {targetDegrees = degreesOnClickPower-240;}
+        else {targetDegrees=degreesOnClickPower+120;}
+    }
+    public void onClick5()
+    {
+        if (degreesOnClickPower>=210) {targetDegrees = degreesOnClickPower-210;}
+        else {targetDegrees=degreesOnClickPower+150;}
+    }
+    public void onClick6()
+    {
+        if (degreesOnClickPower>=180) {targetDegrees = degreesOnClickPower-180;}
+        else {targetDegrees=degreesOnClickPower+180;}
+    }
+    public void onClick7()
+    {
+        if (degreesOnClickPower>=150) {targetDegrees = degreesOnClickPower-150;}
+        else {targetDegrees=degreesOnClickPower+210;}
+    }
+    public void onClick8()
+    {
+        if (degreesOnClickPower>=120) {targetDegrees = degreesOnClickPower-120;}
+        else {targetDegrees=degreesOnClickPower+240;}
+    }
+    public void onClick9()
+    {
+        if (degreesOnClickPower>=90) {targetDegrees = degreesOnClickPower-90;}
+        else {targetDegrees=degreesOnClickPower+270;}
+    }
+    public void onClick10()
+    {
+        if (degreesOnClickPower>=60) {targetDegrees = degreesOnClickPower-60;}
+        else {targetDegrees=degreesOnClickPower+300;}
+    }
+    public void onClick11()
+    {
+        if (degreesOnClickPower>=30) {targetDegrees = degreesOnClickPower-30;}
+        else {targetDegrees=degreesOnClickPower+330;}
+    }
+    public void onClick12() {targetDegrees = degreesOnClickPower;}
 }

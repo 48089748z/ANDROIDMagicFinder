@@ -449,4 +449,23 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
             }
         }
     }
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        stopAndPrepareBeep0();
+        stopAndPrepareBeep();
+        stopAndPrepareBeep2();
+        stopAndPrepareBeep3();
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        stopAndPrepareBeep0();
+        stopAndPrepareBeep();
+        stopAndPrepareBeep2();
+        stopAndPrepareBeep3();
+    }
 }
