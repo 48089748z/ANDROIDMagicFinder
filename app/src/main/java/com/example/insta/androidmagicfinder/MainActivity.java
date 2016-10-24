@@ -217,6 +217,8 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void powerOff()
     {
+        if (numericMode){TVmode.setText("                                                                                .");}
+        else{TVmode.setText("                           .");}
         stopAndPrepareBeep0();
         stopAndPrepareBeep();
         stopAndPrepareBeep2();
@@ -414,6 +416,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void twelveBars()
     {
+        TVmode.setText("");
         playBeep(0);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
@@ -508,8 +511,9 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void openDialog()
     {
+        try {Thread.sleep(2000);} catch (InterruptedException ignored){}
         new AlertDialog.Builder(this).setTitle("         INFORMATION")
-                .setMessage("If you want to open this screen again press and hold the power button for 2 seconds.\n\nOK to open the tutorial of the app.\nCANCEL to exit.")
+                .setMessage("If you want to open this screen again press and hold the power button for 3 seconds.\n\nOK to open the tutorial of the app.\nCANCEL to exit.")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which)
                     {

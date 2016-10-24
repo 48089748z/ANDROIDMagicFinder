@@ -77,13 +77,14 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         IB12 = (ImageButton) this.findViewById(R.id.IB12);
         IBpower = (ImageButton) this.findViewById(R.id.IBpower);
         TVmode = (TextView) this.findViewById(R.id.TVmode);
-        powerOff();
         TVmode.setText("                                                       .");
+        powerOff();
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
         pass = getIntent().getExtras().getString("passcode");
     }
     public void onClickPower()
     {
+        TVmode.setText("                                                       .");
         if (timesPowerOn==0) {degreesOnClickPower = currentDegrees;asignTargets();}
         if (timesPowerOn>3){Intent mainActivity = new Intent(this, MainActivity.class); startActivity(mainActivity);}
         if (power)
@@ -385,6 +386,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void twelveBars()
     {
+        TVmode.setText("");
         playBeep(0);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);

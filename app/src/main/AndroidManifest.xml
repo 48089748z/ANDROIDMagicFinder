@@ -10,7 +10,8 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -18,17 +19,13 @@
         </activity>
 
         <activity android:name=".LockScreenActivity"
-            android:screenOrientation="portrait">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.insta.androidmagicfinder.MainActivity" />
+            android:screenOrientation="portrait"
+            android:noHistory="true">
         </activity>
 
         <activity android:name=".BlockModeActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVIY"
-                android:value="com.example.insta.androidmagicfinder.MainActivity"/>
+            android:screenOrientation="portrait"
+            android:noHistory="true">
         </activity>
 
     </application>

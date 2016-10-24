@@ -22,7 +22,8 @@
         android:id="@+id/IB12"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        android:paddingBottom="0dp"/>
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
 
     <ImageButton
@@ -33,7 +34,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        android:paddingBottom="15dp" />
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
     <ImageButton
         android:background="@android:color/black"
@@ -43,7 +45,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        />
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -52,7 +55,9 @@
         android:layout_below="@+id/IB9"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
     <ImageButton
         android:background="@android:color/black"
@@ -62,7 +67,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
     <ImageButton
         android:background="@android:color/black"
@@ -71,7 +77,9 @@
         android:layout_below="@+id/IB7"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
     <ImageButton
         android:background="@android:color/black"
@@ -81,7 +89,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
     <ImageButton
         android:background="@android:color/black"
@@ -90,7 +99,9 @@
         android:layout_below="@+id/IB4"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
     <ImageButton
         android:background="@android:color/black"
@@ -98,7 +109,9 @@
         android:id="@+id/IB5"
         android:layout_below="@+id/IB6"
         android:layout_centerHorizontal="true"
-        android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
     <ImageButton
         android:background="@android:color/black"
@@ -107,7 +120,9 @@
         android:layout_below="@+id/IB2"
         android:layout_height="40dp"
         android:layout_toEndOf="@+id/IB2"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
     <ImageButton
         android:background="@android:color/black"
@@ -115,7 +130,9 @@
         android:id="@+id/IB2"
         android:layout_height="40dp"
         android:layout_below="@+id/IB3"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
     <ImageButton
         android:layout_alignParentBottom="true"
@@ -160,9 +177,10 @@
         android:layout_width="fill_parent"
         android:id="@+id/IB11"
         android:layout_height="40dp"
-        android:paddingTop="0dp"
         android:layout_below="@+id/IB12"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
 
 </RelativeLayout>
