@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     private float targetDegrees;
     private float currentDegrees;
     private float degreesOnClickPower;
-    private long lastMagneticClickMillis = 0;
-    private long lastNumericClickMillis = 0;
     ImageButton IBpower;
     ImageButton IBnumeric;
     ImageButton IBmagnetic;
@@ -104,46 +102,44 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11; targetDegrees = currentDegrees;}});
         IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12; targetDegrees = currentDegrees;}});
         powerOff();
+        IBmagnetic.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v)
+            {
+                blockMode = true;
+                numericMode = false;
+                startBlockMode();
+                return false;
+            }
+        });
+        IBnumeric.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v)
+            {
+                blockMode = true;
+                numericMode = false;
+                startBlockMode();
+                return false;
+            }
+        });
         IBmagnetic.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
         {
             powerOff();
-            lastMagneticClickMillis = System.currentTimeMillis();
-           if (lastNumericClickMillis+400>System.currentTimeMillis() && lastNumericClickMillis!=0)
-           {
-               blockMode = true;
-               numericMode = false;
-               TVmode.setText("                                                       .");
-               startBlockMode();
-           }
-           else
-           {
-
-               numericMode = false;
-               blockMode = false;
-               firstHit = true;
-               buttonClicked = 0;
-               TVmode.setText("                           .");
-           }
+            numericMode = false;
+            blockMode = false;
+            firstHit = true;
+            buttonClicked = 0;
+            TVmode.setText("                           .");
         }});
         IBnumeric.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
         {
             powerOff();
-            lastNumericClickMillis = System.currentTimeMillis();
-            if (lastMagneticClickMillis+400>System.currentTimeMillis() && lastMagneticClickMillis!=0)
-            {
-                blockMode=true;
-                numericMode = false;
-                TVmode.setText("                                                       .");
-                startBlockMode();
-            }
-            else
-            {
-                numericMode = true;
-                blockMode = false;
-                firstHit = true;
-                buttonClicked = 0;
-                TVmode.setText("                                                                                .");
-            }
+            numericMode = true;
+            blockMode = false;
+            firstHit = true;
+            buttonClicked = 0;
+            TVmode.setText("                                                                                .");
+
         }});
     }
     public void onClickPower()
@@ -183,6 +179,13 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
             bars(nearestToTarget);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
+
     @Override
     protected void onResume()
     {
@@ -490,7 +493,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     public void startBlockMode()
     {
         Intent lockScreen = new Intent(this, LockScreenActivity.class);
-        try {Thread.sleep(1000);} //ESTO HA DE SER 20000 = 20secs
+        try {Thread.sleep(1000);} //ESTO HA DE SER 20000
         catch (InterruptedException ignored) {}
         startActivity(lockScreen);
     }

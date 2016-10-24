@@ -18,10 +18,18 @@
         </activity>
 
         <activity android:name=".LockScreenActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.insta.androidmagicfinder.MainActivity" />
+        </activity>
 
         <activity android:name=".BlockModeActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVIY"
+                android:value="com.example.insta.androidmagicfinder.MainActivity"/>
+        </activity>
 
     </application>
 

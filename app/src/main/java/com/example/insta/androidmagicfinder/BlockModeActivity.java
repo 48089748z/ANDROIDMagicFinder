@@ -84,6 +84,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     }
     public void onClickPower()
     {
+        if (timesPowerOn==0) {degreesOnClickPower = currentDegrees;asignTargets();}
         if (timesPowerOn>3){Intent mainActivity = new Intent(this, MainActivity.class); startActivity(mainActivity);}
         if (power)
         {
@@ -150,13 +151,6 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
         else if (timesPowerOn ==4){targetDegrees=target4;}
         else {}
         currentDegrees = Math.round(event.values[0]); //To get the Current Orientation in degrees rounded.
-        if (currentDegrees!=0.0 && cont==0)
-        {
-            cont++;
-            degreesOnClickPower = currentDegrees;
-            Log.e("Current DEGREES MAIN", String.valueOf(currentDegrees));
-            asignTargets();
-        }
         float a = Math.abs(currentDegrees - targetDegrees);
         float b = Math.abs(360 - Math.abs(currentDegrees - targetDegrees));
         if (a > b) {nearestToTarget = b;}
