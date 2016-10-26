@@ -23,7 +23,8 @@
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql12" />
 
 
     <ImageButton
@@ -35,7 +36,8 @@
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql10" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -46,7 +48,8 @@
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp" />
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql9" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -57,7 +60,8 @@
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql8" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -68,7 +72,8 @@
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql7" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -79,7 +84,8 @@
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql6" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -90,7 +96,8 @@
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql4" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -101,7 +108,8 @@
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql3" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -111,7 +119,8 @@
         android:layout_centerHorizontal="true"
         android:layout_height="40dp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql5" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -122,7 +131,8 @@
         android:layout_toEndOf="@+id/IB2"
         android:layout_alignParentStart="true"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql1" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -132,7 +142,8 @@
         android:layout_below="@+id/IB3"
         android:layout_alignParentStart="true"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql2" />
 
     <ImageButton
         android:layout_alignParentBottom="true"
@@ -140,7 +151,8 @@
         android:id="@+id/IBpower"
         android:background="@android:color/black"
         android:layout_height="110dp"
-        android:layout_width="110dp" />
+        android:layout_width="110dp"
+        app:srcCompat="@drawable/off" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -180,7 +192,8 @@
         android:layout_below="@+id/IB12"
         android:layout_alignParentStart="true"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql11" />
 
 
 </RelativeLayout>

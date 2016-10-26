@@ -9,20 +9,12 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class MainActivity extends AppCompatActivity  implements SensorEventListener
 {
     private Integer buttonClicked = 0;
@@ -81,12 +73,16 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IB10 = (ImageButton) this.findViewById(R.id.IB10);
         IB11 = (ImageButton) this.findViewById(R.id.IB11);
         IB12 = (ImageButton) this.findViewById(R.id.IB12);
+        TVmode = (TextView) this.findViewById(R.id.TVmode);
         IBpower = (ImageButton) this.findViewById(R.id.IBpower);
         IBnumeric = (ImageButton) this.findViewById(R.id.IBnumeric);
         IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
-        TVmode = (TextView) this.findViewById(R.id.TVmode);
-        TVmode.setText("                           .");
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
+
+        twelveBars();
+        TVmode.setText("                           .");
+        powerOff();
+
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
         IBpower.setOnLongClickListener(new View.OnLongClickListener() {@Override public boolean onLongClick(View v) {openDialog();return false;}});
         IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1; targetDegrees = currentDegrees;}});
@@ -101,7 +97,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IB10.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=10; targetDegrees = currentDegrees;}});
         IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11; targetDegrees = currentDegrees;}});
         IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12; targetDegrees = currentDegrees;}});
-        powerOff();
         IBmagnetic.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v)
@@ -161,7 +156,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     public void startMagneticMode()
     {
         degreesOnClickPower = currentDegrees;
-        if (!firstHit && buttonClicked==0) {onClick9();}
+        if (!firstHit && buttonClicked==0 || degreesOnClickPower==0) {onClick9();}
         firstHit = false;
     }
 
@@ -431,7 +426,11 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         Picasso.with(this).load(R.drawable.pl11).fit().into(IB11);
         Picasso.with(this).load(R.drawable.pl12).fit().into(IB12);
     }
-    public void stopAndPrepareBeep0(){if (beep0.isPlaying()){beep0.stop(); try {beep0.prepare();} catch (IOException ignored){}}}
+    public void stopAndPrepareBeep0()
+    {
+        if (numericMode) {if (beep0.isPlaying()){beep0.stop();}beep0 = MediaPlayer.create(this, R.raw.beep0);}
+        else {if (beep0.isPlaying()){beep0.stop(); try {beep0.prepare();} catch (IOException ignored){}}}
+    }
     public void stopAndPrepareBeep() {if (beep.isPlaying()){beep.stop(); try {beep.prepare();} catch (IOException ignored){}}}
     public void stopAndPrepareBeep2() {if (beep2.isPlaying()){beep2.stop(); try {beep2.prepare();} catch (IOException ignored){}}}
     public void stopAndPrepareBeep3() {if (beep3.isPlaying()){beep3.stop(); try {beep3.prepare();} catch (IOException ignored){}}}
