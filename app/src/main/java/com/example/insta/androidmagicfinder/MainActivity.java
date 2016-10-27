@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
         checkFirstRun();
         beep0 = MediaPlayer.create(this, R.raw.beep0);
         beep0.setLooping(true);
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IBpower = (ImageButton) this.findViewById(R.id.IBpower);
         IBnumeric = (ImageButton) this.findViewById(R.id.IBnumeric);
         IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); //Compass SensorManager
+
 
         twelveBars();
         TVmode.setText("                           .");
@@ -153,10 +154,15 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
             else {startMagneticMode();}
         }
     }
+    private Integer cont = 0;
     public void startMagneticMode()
     {
+
         degreesOnClickPower = currentDegrees;
-        if (!firstHit && buttonClicked==0 || degreesOnClickPower==0) {onClick9();}
+        if (!firstHit && buttonClicked==0 || degreesOnClickPower==0)
+        {
+            onClick9();
+        }
         firstHit = false;
     }
 
