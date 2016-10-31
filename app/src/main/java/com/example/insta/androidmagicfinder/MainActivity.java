@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
 
 
-        twelveBars();
+        onClickPower();
         TVmode.setText("                           .");
         powerOff();
 
