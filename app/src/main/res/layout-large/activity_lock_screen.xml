@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_lock_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:fitsSystemWindows="true"
+    android:keepScreenOn="true">
+
+    tools:context="com.example.insta.androidmagicfinder.LockScreenActivity">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/IBfullscreen"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:text="6"
+        android:layout_width="90dp"
+        android:id="@+id/TV6"
+        android:textColor="#FFFFFF"
+        android:textAlignment="textStart"
+        android:layout_above="@+id/TV9"
+        android:layout_alignStart="@+id/TV3"
+        android:textSize="34dp"
+        android:layout_height="70dp" />
+
+    <TextView
+        android:text="9"
+        android:layout_width="90dp"
+        android:id="@+id/TV9"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:layout_above="@+id/TVok"
+        android:layout_alignStart="@+id/TV6"
+        android:textSize="34dp"
+        android:layout_height="70dp" />
+
+    <TextView
+        android:text="OK"
+        android:layout_width="90dp"
+        android:id="@+id/TVok"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:layout_alignStart="@+id/TV9"
+        android:textSize="34dp"
+        android:layout_above="@+id/TVlowerline"
+        android:layout_height="70dp" />
+
+    <TextView
+        android:text="4"
+        android:layout_width="90dp"
+        android:id="@+id/TV4"
+        android:textColor="#FFFFFF"
+        android:textAlignment="textStart"
+        android:layout_above="@+id/TV7"
+        android:layout_alignStart="@+id/TV1"
+        android:textSize="34dp"
+        android:layout_height="70dp" />
+
+    <TextView
+        android:text="7"
+        android:layout_width="90dp"
+        android:id="@+id/TV7"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:layout_alignBaseline="@+id/TV8"
+        android:layout_alignBottom="@+id/TV8"
+        android:layout_alignStart="@+id/TV4"
+        android:textSize="34dp"
+        android:layout_height="70dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/backspace"
+        android:layout_alignEnd="@+id/TV3"
+        android:id="@+id/IBback"
+        android:layout_toEndOf="@+id/TVcode"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/TVcode"
+        android:layout_alignBottom="@+id/TVcode"
+        android:layout_alignStart="@+id/TV3" />
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:id="@+id/TCtime"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="80dp"
+        android:paddingTop="20dp"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Day/Month/Year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TVdate"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:paddingLeft="20dp"
+        android:layout_below="@+id/TCtime"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="                                                                         "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TV1"
+        android:layout_alignParentStart="true"
+        android:id="@+id/TVupperline"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:textAllCaps="true" />
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/TVcode"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:textColor="#FFFFFF"
+        android:layout_above="@+id/TVupperline"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Emergency call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/TVlowerline"
+        android:layout_alignParentEnd="true"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:paddingBottom="6dp"/>
+
+    <TextView
+        android:text="Enter passcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/IBback"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/TVinfo"
+        android:layout_alignParentStart="true"
+        android:textSize="18dp"
+        android:textColor="@android:color/white"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="1  "
+        android:layout_width="90dp"
+        android:id="@+id/TV1"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/white"
+        android:layout_height="70dp"
+        android:textSize="34dp"
+        android:layout_above="@+id/TV4"
+        android:layout_toStartOf="@+id/TV5"
+        android:layout_marginEnd="20dp" />
+
+    <TextView
+        android:text="3"
+        android:layout_width="90dp"
+        android:id="@+id/TV3"
+        android:textColor="#FFFFFF"
+        android:textAlignment="textStart"
+        android:layout_marginEnd="15dp"
+        android:textSize="34dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/TVupperline"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="2"
+        android:layout_width="90dp"
+        android:id="@+id/TV2"
+        android:textColor="#FFFFFF"
+        android:textAlignment="textStart"
+        android:textSize="34dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/TVupperline"
+        android:layout_toStartOf="@+id/TV6"
+        android:layout_marginEnd="19dp" />
+
+    <TextView
+        android:text="5"
+        android:layout_width="90dp"
+        android:id="@+id/TV5"
+        android:textColor="#FFFFFF"
+        android:textAlignment="textStart"
+        android:textSize="34dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/TV2"
+        android:layout_alignStart="@+id/TV2" />
+
+    <TextView
+        android:text="8"
+        android:layout_width="90dp"
+        android:id="@+id/TV8"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="34dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/TV0"
+        android:layout_alignStart="@+id/TV5" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="90dp"
+        android:id="@+id/TV0"
+        android:textStyle="normal|bold"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="34dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/TVlowerline"
+        android:layout_alignStart="@+id/TV8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TVinfo"
+        android:layout_alignParentStart="true"
+        android:id="@+id/TVasteriscs"
+        android:layout_toStartOf="@+id/IBback"
+        android:layout_above="@+id/TVupperline"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
