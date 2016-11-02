@@ -88,18 +88,18 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {
             powerOn();}});
         IBpower.setOnLongClickListener(new View.OnLongClickListener() {@Override public boolean onLongClick(View v) {openDialog();return false;}});
-        IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1; targetDegrees = currentDegrees;}});
-        IB2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=2; targetDegrees = currentDegrees;}});
-        IB3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=3; targetDegrees = currentDegrees;}});
-        IB4.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=4; targetDegrees = currentDegrees;}});
-        IB5.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=5; targetDegrees = currentDegrees;}});
-        IB6.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=6; targetDegrees = currentDegrees;}});
-        IB7.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=7; targetDegrees = currentDegrees;}});
-        IB8.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=8; targetDegrees = currentDegrees;}});
-        IB9.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=9; targetDegrees = currentDegrees;}});
-        IB10.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=10; targetDegrees = currentDegrees;}});
-        IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11; targetDegrees = currentDegrees;}});
-        IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12; targetDegrees = currentDegrees;}});
+        IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1; if(firstHit){targetDegrees = currentDegrees;}}});
+        IB2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=2; if(firstHit){targetDegrees = currentDegrees;}}});
+        IB3.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=3;  if(firstHit){targetDegrees = currentDegrees;}}});
+        IB4.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=4; if(firstHit){targetDegrees = currentDegrees;}}});
+        IB5.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=5;  if(firstHit){targetDegrees = currentDegrees;}}});
+        IB6.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=6;  if(firstHit){targetDegrees = currentDegrees;}}});
+        IB7.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=7;  if(firstHit){targetDegrees = currentDegrees;}}});
+        IB8.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=8; if(firstHit){targetDegrees = currentDegrees;}}});
+        IB9.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=9;  if(firstHit){targetDegrees = currentDegrees;}}});
+        IB10.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=10; if(firstHit){targetDegrees = currentDegrees;}}});
+        IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11; if(firstHit){targetDegrees = currentDegrees;}}});
+        IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12;  if(firstHit){targetDegrees = currentDegrees;}}});
         IBmagnetic.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v)
@@ -156,7 +156,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
             else {startMagneticMode();}
         }
     }
-    private Integer cont = 0;
     public void startMagneticMode()
     {
         degreesOnClickPower = currentDegrees;
