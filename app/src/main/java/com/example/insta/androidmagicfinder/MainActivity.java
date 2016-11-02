@@ -442,6 +442,20 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     public void stopAndPrepareBeep3() {if (beep3.isPlaying()){beep3.stop(); try {beep3.prepare();} catch (IOException ignored){}}}
     public void playBeep(long milliseconds)
     {
+        if (numericMode)
+        {
+            beep0.setLooping(true);
+            beep.setLooping(true);
+            beep2.setLooping(true);
+            beep3.setLooping(true);
+        }
+        else
+        {
+            beep0.setLooping(false);
+            beep.setLooping(false);
+            beep2.setLooping(false);
+            beep3.setLooping(false);
+        }
         if (milliseconds==0)
         {
             stopAndPrepareBeep0();
