@@ -80,11 +80,13 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
 
 
-        onClickPower();
+        powerOn();
+        twelveBars();
         TVmode.setText("                           .");
         powerOff();
 
-        IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {onClickPower();}});
+        IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {
+            powerOn();}});
         IBpower.setOnLongClickListener(new View.OnLongClickListener() {@Override public boolean onLongClick(View v) {openDialog();return false;}});
         IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1; targetDegrees = currentDegrees;}});
         IB2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=2; targetDegrees = currentDegrees;}});
@@ -138,7 +140,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
 
         }});
     }
-    public void onClickPower()
+    public void powerOn()
     {
         if (power)
         {
@@ -157,9 +159,8 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     private Integer cont = 0;
     public void startMagneticMode()
     {
-
         degreesOnClickPower = currentDegrees;
-        if (!firstHit && buttonClicked==0 || degreesOnClickPower==0)
+        if (!firstHit || degreesOnClickPower==0)
         {
             onClick9();
         }
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     protected void onResume()
     {
         super.onResume();
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_FASTEST);  //For the System's Orientation Sensor Registered Listeners
+        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_NORMAL);  //For the System's Orientation Sensor Registered Listeners
     }
     @Override
     protected void onPause()

@@ -11,7 +11,7 @@
     android:paddingRight="0dp"
     android:paddingTop="20dp"
     android:background="@android:color/black"
-    tools:context="com.example.insta.androidmagicfinder.MainActivity"
+    tools:context="com.example.insta.androidmagicfinder.BlockModeActivity"
     android:keepScreenOn="true">
 
     <ImageButton
@@ -42,18 +42,6 @@
     <ImageButton
         android:background="@android:color/black"
         android:layout_width="fill_parent"
-        android:id="@+id/IB9"
-        android:layout_below="@+id/IB10"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        app:srcCompat="@drawable/ql9"
-        android:layout_height="60dp" />
-
-    <ImageButton
-        android:background="@android:color/black"
-        android:layout_width="fill_parent"
         android:id="@+id/IB8"
         android:layout_below="@+id/IB9"
         android:layout_alignParentStart="true"
@@ -73,30 +61,6 @@
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         app:srcCompat="@drawable/ql7"
-        android:layout_height="60dp" />
-
-    <ImageButton
-        android:background="@android:color/black"
-        android:layout_width="fill_parent"
-        android:id="@+id/IB6"
-        android:layout_below="@+id/IB7"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        app:srcCompat="@drawable/ql6"
-        android:layout_height="60dp" />
-
-    <ImageButton
-        android:background="@android:color/black"
-        android:layout_width="fill_parent"
-        android:id="@+id/IB3"
-        android:layout_below="@+id/IB4"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        app:srcCompat="@drawable/ql3"
         android:layout_height="60dp" />
 
     <ImageButton
@@ -191,5 +155,66 @@
         android:layout_alignParentStart="true"
         android:layout_height="60dp" />
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@+id/IB10"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB9"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql9"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@+id/IB7"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView5"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB6"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql6"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@+id/IB4"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView7"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB3"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        app:srcCompat="@drawable/ql3"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>
+

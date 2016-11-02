@@ -22,8 +22,8 @@
         android:id="@+id/IB12"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
         app:srcCompat="@drawable/ql12" />
 
 
@@ -35,21 +35,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
         app:srcCompat="@drawable/ql10" />
-
-    <ImageButton
-        android:background="@android:color/black"
-        android:layout_width="fill_parent"
-        android:id="@+id/IB9"
-        android:layout_below="@+id/IB10"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_height="40dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        app:srcCompat="@drawable/ql9" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -59,8 +47,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
         app:srcCompat="@drawable/ql8" />
 
     <ImageButton
@@ -71,21 +59,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
         app:srcCompat="@drawable/ql7" />
-
-    <ImageButton
-        android:background="@android:color/black"
-        android:layout_width="fill_parent"
-        android:id="@+id/IB6"
-        android:layout_below="@+id/IB7"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_height="40dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        app:srcCompat="@drawable/ql6" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -95,21 +71,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_height="40dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
         app:srcCompat="@drawable/ql4" />
-
-    <ImageButton
-        android:background="@android:color/black"
-        android:layout_width="fill_parent"
-        android:id="@+id/IB3"
-        android:layout_below="@+id/IB4"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_height="40dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        app:srcCompat="@drawable/ql3" />
 
     <ImageButton
         android:background="@android:color/black"
@@ -118,8 +82,8 @@
         android:layout_below="@+id/IB6"
         android:layout_centerHorizontal="true"
         android:layout_height="40dp"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
         app:srcCompat="@drawable/ql5" />
 
     <ImageButton
@@ -130,8 +94,8 @@
         android:layout_height="40dp"
         android:layout_toEndOf="@+id/IB2"
         android:layout_alignParentStart="true"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
         app:srcCompat="@drawable/ql1" />
 
     <ImageButton
@@ -141,8 +105,8 @@
         android:layout_height="40dp"
         android:layout_below="@+id/IB3"
         android:layout_alignParentStart="true"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
         app:srcCompat="@drawable/ql2" />
 
     <ImageButton
@@ -150,9 +114,9 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/IBpower"
         android:background="@android:color/black"
-        android:layout_height="110dp"
-        android:layout_width="110dp"
-        app:srcCompat="@drawable/off" />
+        app:srcCompat="@drawable/off"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -191,9 +155,69 @@
         android:layout_height="40dp"
         android:layout_below="@+id/IB12"
         android:layout_alignParentStart="true"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
         app:srcCompat="@drawable/ql11" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_below="@+id/IB10"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView2"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB9"
+        android:layout_height="40dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        app:srcCompat="@drawable/ql9"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_height="10dp"
+        android:layout_below="@+id/IB7"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB6"
+        android:layout_height="40dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        app:srcCompat="@drawable/ql6"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_below="@+id/IB4"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView4"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:background="@android:color/black"
+        android:layout_width="fill_parent"
+        android:id="@+id/IB3"
+        android:layout_height="40dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        app:srcCompat="@drawable/ql3"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

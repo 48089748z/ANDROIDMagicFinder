@@ -162,7 +162,7 @@ public class BlockModeActivity extends AppCompatActivity  implements SensorEvent
     protected void onResume()
     {
         super.onResume();
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_FASTEST);  //For the System's Orientation Sensor Registered Listeners
+        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION), SensorManager.SENSOR_DELAY_NORMAL);  //For the System's Orientation Sensor Registered Listeners
     }
     @Override
     protected void onPause()
