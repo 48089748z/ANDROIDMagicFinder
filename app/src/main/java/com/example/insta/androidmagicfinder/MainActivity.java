@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     public void startMagneticMode()
     {
         degreesOnClickPower = currentDegrees;
-        if (!firstHit || degreesOnClickPower==0)
+        if (!firstHit || degreesOnClickPower==0 || targetDegrees==0)
         {
             onClick9();
         }
