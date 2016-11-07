@@ -1,18 +1,26 @@
 package com.example.insta.androidmagicfinder;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
+import android.util.Log;
+import android.view.DragEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 public class LockScreenActivity extends AppCompatActivity
 {
@@ -44,7 +52,6 @@ public class LockScreenActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_lock_screen);
-
         lp = this.getWindow().getAttributes();
         lp.screenBrightness = 0.0f;
         this.getWindow().setAttributes(lp);
@@ -72,7 +79,6 @@ public class LockScreenActivity extends AppCompatActivity
         TVlowerline = (TextView) this.findViewById(R.id.TVlowerline);
         TVinfo = (TextView) this.findViewById(R.id.TVinfo);
         TVasteriscs = (TextView) this.findViewById(R.id.TVasteriscs);
-
 
         hideAllitems();
         IBfullscreen.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {loadLockScreenImages();}});
@@ -148,7 +154,7 @@ public class LockScreenActivity extends AppCompatActivity
     public void loadLockScreenImages()
     {
         Picasso.with(this).load(R.drawable.lockscreenbackground).fit().into(IBfullscreen);
-        try {Thread.sleep(1500);} catch (InterruptedException ignored) {}
+        try {Thread.sleep(900);} catch (InterruptedException ignored) {}
         lp.screenBrightness = 255.0f;
         this.getWindow().setAttributes(lp);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);

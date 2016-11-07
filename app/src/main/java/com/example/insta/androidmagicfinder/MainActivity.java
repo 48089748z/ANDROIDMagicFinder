@@ -78,13 +78,8 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IBpower = (ImageButton) this.findViewById(R.id.IBpower);
         IBnumeric = (ImageButton) this.findViewById(R.id.IBnumeric);
         IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
-
-
-        powerOn();
-        twelveBars();
-        TVmode.setText("                           .");
         powerOff();
-
+        TVmode.setText("                           .");
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {
             powerOn();}});
         IBpower.setOnLongClickListener(new View.OnLongClickListener() {@Override public boolean onLongClick(View v) {openDialog();return false;}});
@@ -100,24 +95,21 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IB10.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=10; if(firstHit){targetDegrees = currentDegrees;}}});
         IB11.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=11; if(firstHit){targetDegrees = currentDegrees;}}});
         IB12.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){buttonClicked=12;  if(firstHit){targetDegrees = currentDegrees;}}});
+
         IBmagnetic.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v)
             {
-                blockMode = true;
-                numericMode = false;
                 startBlockMode();
-                return false;
+                return true;
             }
         });
         IBnumeric.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v)
             {
-                blockMode = true;
-                numericMode = false;
                 startBlockMode();
-                return false;
+                return true;
             }
         });
         IBmagnetic.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
@@ -137,11 +129,11 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
             firstHit = true;
             buttonClicked = 0;
             TVmode.setText("                                                                                .");
-
         }});
     }
     public void powerOn()
     {
+        degreesOnClickPower = currentDegrees;
         if (power)
         {
             Picasso.with(this).load(R.drawable.off).fit().into(IBpower); //Change Power ImageButton OFF}
@@ -158,10 +150,10 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void startMagneticMode()
     {
-        degreesOnClickPower = currentDegrees;
-        if (!firstHit || degreesOnClickPower==0 || targetDegrees==0)
+        if (!firstHit || degreesOnClickPower==0 || targetDegrees==0 || buttonClicked==0)
         {
-            onClick9();
+            if (buttonClicked==0){onClick9();}
+            else {buttonClicked=0; targetDegrees=currentDegrees;}
         }
         firstHit = false;
     }
@@ -339,6 +331,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     {
         playBeep(150);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
+        Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
         Picasso.with(this).load(R.drawable.pl3).fit().into(IB3);
         Picasso.with(this).load(R.drawable.pl4).fit().into(IB4);
@@ -514,8 +507,11 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void startBlockMode()
     {
+        TVmode.setText("                                                       .");
+        blockMode = true;
+        numericMode = false;
         Intent lockScreen = new Intent(this, LockScreenActivity.class);
-        try {Thread.sleep(1000);} //ESTO HA DE SER 20000
+        try {Thread.sleep(4000);} //ESTO HA DE SER 20000 = 20 segundos
         catch (InterruptedException ignored) {}
         startActivity(lockScreen);
     }
