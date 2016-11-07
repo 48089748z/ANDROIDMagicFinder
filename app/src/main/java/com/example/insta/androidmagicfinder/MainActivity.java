@@ -6,6 +6,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -114,21 +115,25 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         });
         IBmagnetic.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
         {
-            powerOff();
-            numericMode = false;
-            blockMode = false;
-            firstHit = true;
-            buttonClicked = 0;
-            TVmode.setText("                           .");
+            if (!power)
+            {
+                numericMode = false;
+                blockMode = false;
+                firstHit = true;
+                buttonClicked = 0;
+                TVmode.setText("                           .");
+            }
         }});
         IBnumeric.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
         {
-            powerOff();
-            numericMode = true;
-            blockMode = false;
-            firstHit = true;
-            buttonClicked = 0;
-            TVmode.setText("                                                                                .");
+            if (!power)
+            {
+                numericMode = true;
+                blockMode = false;
+                firstHit = true;
+                buttonClicked = 0;
+                TVmode.setText("                                                                                .");
+            }
         }});
     }
     public void powerOn()
@@ -153,6 +158,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         if (!firstHit || degreesOnClickPower==0 || targetDegrees==0 || buttonClicked==0)
         {
             if (buttonClicked==0){onClick9();}
+            else if (!firstHit){onClick9();}
             else {buttonClicked=0; targetDegrees=currentDegrees;}
         }
         firstHit = false;
@@ -507,13 +513,15 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void startBlockMode()
     {
-        TVmode.setText("                                                       .");
-        blockMode = true;
-        numericMode = false;
-        Intent lockScreen = new Intent(this, LockScreenActivity.class);
-        try {Thread.sleep(4000);} //ESTO HA DE SER 20000 = 20 segundos
-        catch (InterruptedException ignored) {}
-        startActivity(lockScreen);
+        if (!power)
+        {
+            TVmode.setText("                                                       .");
+            blockMode = true;
+            numericMode = false;
+            Handler handler = new Handler();
+            final Intent lockScreen = new Intent(this, LockScreenActivity.class);
+            handler.postDelayed(new Runnable() {@Override public void run() {startActivity(lockScreen);}}, 6000);
+        }
     }
     public void checkFirstRun()
     {

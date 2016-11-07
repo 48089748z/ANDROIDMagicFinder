@@ -3,6 +3,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -154,70 +155,73 @@ public class LockScreenActivity extends AppCompatActivity
     public void loadLockScreenImages()
     {
         Picasso.with(this).load(R.drawable.lockscreenbackground).fit().into(IBfullscreen);
-        try {Thread.sleep(900);} catch (InterruptedException ignored) {}
         lp.screenBrightness = 255.0f;
         this.getWindow().setAttributes(lp);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN, WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        IBback.setVisibility(View.VISIBLE);
-        TV0.setVisibility(View.VISIBLE);
-        TV1.setVisibility(View.VISIBLE);
-        TV2.setVisibility(View.VISIBLE);
-        TV3.setVisibility(View.VISIBLE);
-        TV4.setVisibility(View.VISIBLE);
-        TV5.setVisibility(View.VISIBLE);
-        TV6.setVisibility(View.VISIBLE);
-        TV7.setVisibility(View.VISIBLE);
-        TV8.setVisibility(View.VISIBLE);
-        TV9.setVisibility(View.VISIBLE);
-        TVok.setVisibility(View.VISIBLE);
-        //TVcode.setVisibility(View.VISIBLE);
-        TCtime.setVisibility(View.VISIBLE);
-        TVdate.setVisibility(View.VISIBLE);
-        TVupperline.setVisibility(View.VISIBLE);
-        TVlowerline.setVisibility(View.VISIBLE);
-        TVinfo.setVisibility(View.VISIBLE);
-        TVasteriscs.setVisibility(View.VISIBLE);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {@Override public void run()
+        {
+            IBback.setVisibility(View.VISIBLE);
+            TV0.setVisibility(View.VISIBLE);
+            TV1.setVisibility(View.VISIBLE);
+            TV2.setVisibility(View.VISIBLE);
+            TV3.setVisibility(View.VISIBLE);
+            TV4.setVisibility(View.VISIBLE);
+            TV5.setVisibility(View.VISIBLE);
+            TV6.setVisibility(View.VISIBLE);
+            TV7.setVisibility(View.VISIBLE);
+            TV8.setVisibility(View.VISIBLE);
+            TV9.setVisibility(View.VISIBLE);
+            TVok.setVisibility(View.VISIBLE);
+            //TVcode.setVisibility(View.VISIBLE);
+            TCtime.setVisibility(View.VISIBLE);
+            TVdate.setVisibility(View.VISIBLE);
+            TVupperline.setVisibility(View.VISIBLE);
+            TVlowerline.setVisibility(View.VISIBLE);
+            TVinfo.setVisibility(View.VISIBLE);
+            TVasteriscs.setVisibility(View.VISIBLE);
 
-        SpannableString spannableString2 =  new SpannableString("2 ABC");
-        spannableString2.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
-        spannableString2.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
-        TV2.setText(spannableString2);
+            SpannableString spannableString2 =  new SpannableString("2 ABC");
+            spannableString2.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+            spannableString2.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+            TV2.setText(spannableString2);
 
-        SpannableString spannableString3 =  new SpannableString("3 DEF");
-        spannableString3.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
-        spannableString3.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
-        TV3.setText(spannableString3);
+            SpannableString spannableString3 =  new SpannableString("3 DEF");
+            spannableString3.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+            spannableString3.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+            TV3.setText(spannableString3);
 
-        SpannableString spannableString4 =  new SpannableString("4 GHI");
-        spannableString4.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
-        spannableString4.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
-        TV4.setText(spannableString4);
+            SpannableString spannableString4 =  new SpannableString("4 GHI");
+            spannableString4.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+            spannableString4.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+            TV4.setText(spannableString4);
 
-        SpannableString spannableString5 =  new SpannableString("5 JKL");
-        spannableString5.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
-        spannableString5.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
-        TV5.setText(spannableString5);
+            SpannableString spannableString5 =  new SpannableString("5 JKL");
+            spannableString5.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+            spannableString5.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+            TV5.setText(spannableString5);
 
-        SpannableString spannableString6 =  new SpannableString("6 MNO");
-        spannableString6.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
-        spannableString6.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
-        TV6.setText(spannableString6);
+            SpannableString spannableString6 =  new SpannableString("6 MNO");
+            spannableString6.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+            spannableString6.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+            TV6.setText(spannableString6);
 
-        SpannableString spannableString7 =  new SpannableString("7 PQRS");
-        spannableString7.setSpan(new RelativeSizeSpan(0.7f), 1, 6, 0);
-        spannableString7.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 6, 0);
-        TV7.setText(spannableString7);
+            SpannableString spannableString7 =  new SpannableString("7 PQRS");
+            spannableString7.setSpan(new RelativeSizeSpan(0.7f), 1, 6, 0);
+            spannableString7.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 6, 0);
+            TV7.setText(spannableString7);
 
-        SpannableString spannableString8 =  new SpannableString("8 TUV");
-        spannableString8.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
-        spannableString8.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
-        TV8.setText(spannableString8);
+            SpannableString spannableString8 =  new SpannableString("8 TUV");
+            spannableString8.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
+            spannableString8.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
+            TV8.setText(spannableString8);
 
-        SpannableString spannableString9 =  new SpannableString("9 WXYZ");
-        spannableString9.setSpan(new RelativeSizeSpan(0.7f), 1, 6, 0);
-        spannableString9.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 6, 0);
-        TV9.setText(spannableString9);
+            SpannableString spannableString9 =  new SpannableString("9 WXYZ");
+            spannableString9.setSpan(new RelativeSizeSpan(0.7f), 1, 6, 0);
+            spannableString9.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 6, 0);
+            TV9.setText(spannableString9);
+        }}, 1000);
     }
     public void hideAllitems()
     {
