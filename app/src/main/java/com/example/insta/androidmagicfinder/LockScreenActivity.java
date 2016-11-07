@@ -192,7 +192,7 @@ public class LockScreenActivity extends AppCompatActivity
             spannableString3.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
             TV3.setText(spannableString3);
 
-            SpannableString spannableString4 =  new SpannableString("4 GHI");
+            SpannableString spannableString4 =  new SpannableString("4 GHI  ");
             spannableString4.setSpan(new RelativeSizeSpan(0.7f), 1, 5, 0);
             spannableString4.setSpan(new ForegroundColorSpan(Color.LTGRAY), 1, 5, 0);
             TV4.setText(spannableString4);

@@ -86,15 +86,6 @@
         android:layout_height="60dp" />
 
     <ImageButton
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/IBpower"
-        android:background="@android:color/black"
-        app:srcCompat="@drawable/off"
-        android:layout_width="110dp"
-        android:layout_height="110dp" />
-
-    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -214,6 +205,15 @@
         android:layout_height="60dp"
         android:layout_below="@+id/textView7"
         android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:id="@+id/IBpower"
+        android:background="@android:color/black"
+        app:srcCompat="@drawable/off"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_below="@+id/IB1"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

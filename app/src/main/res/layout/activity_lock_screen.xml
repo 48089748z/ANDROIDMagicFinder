@@ -25,24 +25,13 @@
         android:background="@android:color/black" />
 
     <TextView
-        android:text="6"
+        android:text="6  "
         android:layout_width="90dp"
         android:id="@+id/TV6"
         android:textColor="#FFFFFF"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:layout_above="@+id/TV9"
         android:layout_alignStart="@+id/TV3"
-        android:textSize="34dp"
-        android:layout_height="70dp" />
-
-    <TextView
-        android:text="9"
-        android:layout_width="90dp"
-        android:id="@+id/TV9"
-        android:textAlignment="textStart"
-        android:textColor="#FFFFFF"
-        android:layout_above="@+id/TVok"
-        android:layout_alignStart="@+id/TV6"
         android:textSize="34dp"
         android:layout_height="70dp" />
 
@@ -50,7 +39,7 @@
         android:text="OK"
         android:layout_width="90dp"
         android:id="@+id/TVok"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:layout_alignStart="@+id/TV9"
         android:textSize="34dp"
@@ -62,7 +51,7 @@
         android:layout_width="90dp"
         android:id="@+id/TV4"
         android:textColor="#FFFFFF"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:layout_above="@+id/TV7"
         android:layout_alignStart="@+id/TV1"
         android:textSize="34dp"
@@ -72,7 +61,7 @@
         android:text="7"
         android:layout_width="90dp"
         android:id="@+id/TV7"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:layout_alignBaseline="@+id/TV8"
         android:layout_alignBottom="@+id/TV8"
@@ -116,7 +105,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="                                                                         "
+        android:text="                                                                           "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/TV1"
@@ -162,47 +151,11 @@
         android:textAlignment="center" />
 
     <TextView
-        android:text="1  "
-        android:layout_width="90dp"
-        android:id="@+id/TV1"
-        android:textAlignment="textStart"
-        android:textColor="@android:color/white"
-        android:layout_height="70dp"
-        android:textSize="34dp"
-        android:layout_above="@+id/TV4"
-        android:layout_toStartOf="@+id/TV5"
-        android:layout_marginEnd="20dp" />
-
-    <TextView
-        android:text="3"
-        android:layout_width="90dp"
-        android:id="@+id/TV3"
-        android:textColor="#FFFFFF"
-        android:textAlignment="textStart"
-        android:layout_marginEnd="15dp"
-        android:textSize="34dp"
-        android:layout_height="70dp"
-        android:layout_below="@+id/TVupperline"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="2"
-        android:layout_width="90dp"
-        android:id="@+id/TV2"
-        android:textColor="#FFFFFF"
-        android:textAlignment="textStart"
-        android:textSize="34dp"
-        android:layout_height="70dp"
-        android:layout_below="@+id/TVupperline"
-        android:layout_toStartOf="@+id/TV6"
-        android:layout_marginEnd="19dp" />
-
-    <TextView
         android:text="5"
         android:layout_width="90dp"
         android:id="@+id/TV5"
         android:textColor="#FFFFFF"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textSize="34dp"
         android:layout_height="70dp"
         android:layout_below="@+id/TV2"
@@ -212,7 +165,7 @@
         android:text="8"
         android:layout_width="90dp"
         android:id="@+id/TV8"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34dp"
         android:layout_height="70dp"
@@ -224,7 +177,7 @@
         android:layout_width="90dp"
         android:id="@+id/TV0"
         android:textStyle="normal|bold"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34dp"
         android:layout_height="70dp"
@@ -243,5 +196,52 @@
         android:textAlignment="center"
         android:textSize="32dp"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="2"
+        android:layout_width="90dp"
+        android:id="@+id/TV2"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:textSize="34dp"
+        android:layout_height="70dp"
+        android:layout_alignBaseline="@+id/TV1"
+        android:layout_alignBottom="@+id/TV1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="9"
+        android:layout_width="90dp"
+        android:id="@+id/TV9"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="34dp"
+        android:layout_height="70dp"
+        android:layout_alignBaseline="@+id/TV8"
+        android:layout_alignBottom="@+id/TV8"
+        android:layout_toEndOf="@+id/TV8" />
+
+    <TextView
+        android:text="1       "
+        android:layout_width="90dp"
+        android:id="@+id/TV1"
+        android:textColor="@android:color/white"
+        android:layout_height="70dp"
+        android:textSize="34dp"
+        android:textAlignment="center"
+        android:layout_above="@+id/TV4"
+        android:layout_toStartOf="@+id/TV5" />
+
+    <TextView
+        android:text="3  "
+        android:layout_width="90dp"
+        android:id="@+id/TV3"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:textSize="34dp"
+        android:layout_height="70dp"
+        android:layout_alignBaseline="@+id/TV2"
+        android:layout_alignBottom="@+id/TV2"
+        android:layout_toEndOf="@+id/TV5" />
 
 </RelativeLayout>

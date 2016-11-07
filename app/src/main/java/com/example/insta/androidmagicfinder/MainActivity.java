@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
@@ -81,8 +82,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
         powerOff();
         TVmode.setText("                           .");
-        IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {
-            powerOn();}});
+        IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {powerOn();}});
         IBpower.setOnLongClickListener(new View.OnLongClickListener() {@Override public boolean onLongClick(View v) {openDialog();return false;}});
         IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1; if(firstHit){targetDegrees = currentDegrees;}}});
         IB2.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=2; if(firstHit){targetDegrees = currentDegrees;}}});
