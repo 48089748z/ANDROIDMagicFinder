@@ -1,223 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="10dp"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
-    android:paddingTop="20dp"
-    android:background="@android:color/black"
-    tools:context="com.example.insta.androidmagicfinder.MainActivity"
-    android:keepScreenOn="true">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.insta.androidmagicfinder.MainActivity"
+        android:weightSum="100"
+        android:orientation="vertical">
 
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/IB12"
-        android:layout_alignParentEnd="true"
-        android:layout_height="40dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql12" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB12"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql12" />
+    </LinearLayout>
 
-
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB10"
-        android:layout_below="@+id/IB11"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_height="40dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql10" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB11"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql11" />
+    </LinearLayout>
 
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB8"
-        android:layout_below="@+id/IB9"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_height="40dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql8" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB10"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql10" />
+    </LinearLayout>
 
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB7"
-        android:layout_below="@+id/IB8"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_height="40dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql7" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB9"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql9" />
+    </LinearLayout>
 
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB4"
-        android:layout_below="@+id/IB5"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_height="40dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql4" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB8"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql8" />
+    </LinearLayout>
 
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB5"
-        android:layout_below="@+id/IB6"
-        android:layout_centerHorizontal="true"
-        android:layout_height="40dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql5" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB7"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql7" />
+    </LinearLayout>
 
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB1"
-        android:layout_below="@+id/IB2"
-        android:layout_height="40dp"
-        android:layout_toEndOf="@+id/IB2"
-        android:layout_alignParentStart="true"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql1" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB6"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql6" />
+    </LinearLayout>
 
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB2"
-        android:layout_height="40dp"
-        android:layout_below="@+id/IB3"
-        android:layout_alignParentStart="true"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql2" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB5"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql5" />
+    </LinearLayout>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/IBmagnetic"
-        android:layout_toStartOf="@+id/IBpower"
-        android:layout_below="@+id/IB1"
-        android:background="@android:color/black" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/IBnumeric"
-        android:layout_toEndOf="@+id/IBpower"
-        android:layout_below="@+id/IB1"
-        android:background="@android:color/black" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:id="@+id/TVmode"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/IB11"
-        android:layout_alignParentTop="true" />
-
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB11"
-        android:layout_height="40dp"
-        android:layout_below="@+id/IB12"
-        android:layout_alignParentStart="true"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql11" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB4"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql4" />
+    </LinearLayout>
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="10dp"
-        android:layout_below="@+id/IB10"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView2"
-        android:layout_alignParentEnd="true" />
-
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB9"
-        android:layout_height="40dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql9"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql3" />
+    </LinearLayout>
 
-    <TextView
-        android:text="TextView"
-        android:layout_height="10dp"
-        android:layout_below="@+id/IB7"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView3"
-        android:layout_alignParentEnd="true"
-        android:layout_width="wrap_content" />
-
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB6"
-        android:layout_height="40dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql6"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentStart="true" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql2" />
+    </LinearLayout>
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="10dp"
-        android:layout_below="@+id/IB4"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView4"
-        android:layout_alignParentEnd="true" />
-
-    <ImageButton
-        android:background="@android:color/black"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:id="@+id/IB3"
-        android:layout_height="40dp"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        app:srcCompat="@drawable/ql3"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:id="@+id/IBpower"
-        android:background="@android:color/black"
-        app:srcCompat="@drawable/off"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/IB1"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="7"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:id="@+id/IB1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:srcCompat="@drawable/ql1" />
+    </LinearLayout>
 
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="16"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="33"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/IBmagnetic"
+                android:background="@android:color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="33"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/IBpower"
+                android:background="@android:color/black"
+                app:srcCompat="@drawable/off"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="33"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/IBnumeric"
+                android:background="@android:color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

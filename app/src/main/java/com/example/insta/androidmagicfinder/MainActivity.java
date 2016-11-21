@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     MediaPlayer beep;
     MediaPlayer beep2;
     MediaPlayer beep3;
-    TextView TVmode;
+   //TextView TVmode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -76,12 +76,12 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         IB10 = (ImageButton) this.findViewById(R.id.IB10);
         IB11 = (ImageButton) this.findViewById(R.id.IB11);
         IB12 = (ImageButton) this.findViewById(R.id.IB12);
-        TVmode = (TextView) this.findViewById(R.id.TVmode);
+       // TVmode = (TextView) this.findViewById(R.id.TVmode);
         IBpower = (ImageButton) this.findViewById(R.id.IBpower);
         IBnumeric = (ImageButton) this.findViewById(R.id.IBnumeric);
         IBmagnetic = (ImageButton) this.findViewById(R.id.IBmagnetic);
         powerOff();
-        TVmode.setText("                           .");
+       // TVmode.setText("                           .");
         IBpower.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {powerOn();}});
         IBpower.setOnLongClickListener(new View.OnLongClickListener() {@Override public boolean onLongClick(View v) {openDialog();return false;}});
         IB1.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v) {buttonClicked=1; if(firstHit){targetDegrees = currentDegrees;}}});
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
                 blockMode = false;
                 firstHit = true;
                 buttonClicked = 0;
-                TVmode.setText("                           .");
+               // TVmode.setText("                           .");
             }
         }});
         IBnumeric.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v)
@@ -132,9 +132,10 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
                 blockMode = false;
                 firstHit = true;
                 buttonClicked = 0;
-                TVmode.setText("                                                                                .");
+                //TVmode.setText("                                                                                .");
             }
         }});
+
     }
     public void powerOn()
     {
@@ -216,8 +217,14 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void powerOff()
     {
-        if (numericMode){TVmode.setText("                                                                                .");}
-        else{TVmode.setText("                           .");}
+        if (numericMode)
+        {
+            //TVmode.setText("                                                                                .");
+        }
+        else
+        {
+            //TVmode.setText("                           .");
+        }
         stopAndPrepareBeep0();
         stopAndPrepareBeep();
         stopAndPrepareBeep2();
@@ -416,7 +423,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     }
     public void twelveBars()
     {
-        TVmode.setText("");
+        //TVmode.setText("");
         playBeep(0);
         Picasso.with(this).load(R.drawable.pl1).fit().into(IB1);
         Picasso.with(this).load(R.drawable.pl2).fit().into(IB2);
@@ -515,7 +522,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     {
         if (!power)
         {
-            TVmode.setText("                                                       .");
+            //TVmode.setText("                                                       .");
             blockMode = true;
             numericMode = false;
             Handler handler = new Handler();
