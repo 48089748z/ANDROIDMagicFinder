@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -24,7 +24,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -37,7 +37,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -50,7 +50,19 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -63,7 +75,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -76,7 +88,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -89,7 +101,19 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -102,7 +126,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -115,7 +139,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -128,7 +152,18 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <ImageButton
+            android:background="@android:color/black"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -141,7 +176,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -154,7 +189,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="7"
+        android:layout_weight="6"
         android:orientation="vertical">
         <ImageButton
             android:background="@android:color/black"
@@ -168,7 +203,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_weight="16"
+        android:layout_weight="25"
         android:orientation="horizontal"
         android:weightSum="100">
 
